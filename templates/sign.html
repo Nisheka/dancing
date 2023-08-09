@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login & sign-up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sign.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="cont">
+        <div class="form sign-in">
+            <h2>Sign In</h2>
+            <form action="/signin" method="POST">
+                <label>
+                    <span>Email Address</span>
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password">
+                </label>
+                <button class="submit" type="submit">Sign In</button>
+                <p class="forgot-pass">Forgot Password ?</p>
+                <div class="social-media">
+                    <ul>
+                        <li><img src="{{ url_for('static', filename='images/facebook.png') }}"></li>
+                        <li><img src="{{ url_for('static', filename='images/linkedin.png') }}"></li>
+                        <li><img src="{{ url_for('static', filename='images/instagram.png') }}"></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <div class="sub-cont">
+            <div class="img" >
+                <div class="img-text m-up">
+                    <h2>New here?</h2>
+                    <p>Sign up and discover great amount of new opportunities!</p>
+                </div>
+                <div class="img-text m-in">
+                    <h2>One of us?</h2>
+                    <p>If you already have an account, just sign in. We've missed you!</p>
+                </div>
+                <div class="img-btn">
+                    <span class="m-up">Sign Up</span>
+                    <span class="m-in">Sign In</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <h2>Sign Up</h2>
+                <form action="/signup" method="POST">
+                    <label>
+                        <span>Name</span>
+                        <input type="text" name="name">
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="email">
+                    </label>
+                    <label>
+                        <span>Password</span>
+                        <input type="password" name="password">
+                    </label>
+                    <label>
+                        <span>Confirm Password</span>
+                        <input type="password" name="confirm_password">
+                    </label>
+                    <button type="submit" class="submit">Sign Up Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.img-btn').addEventListener('click', function()
+        {
+            document.querySelector('.cont').classList.toggle('s-signup')
+        }
+        );
+    </script>
+</body>
+</html>
