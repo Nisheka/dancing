@@ -1,6 +1,7 @@
 :root{
   --blue:cadetblue;
   --pink:#e84393;
+  --pinky:#e798be;
 }
 *{
     margin:0;
@@ -44,19 +45,68 @@ header .logo{
 header .logo span{
     color: var(--pink);
 }
-header .navbar a{
-    font-size: 2rem;
-    padding: 0 1.5rem;
-    color: #666;
-}
 
-header .navbar a:hover{
+
+  .menu-bar ul {
+    list-style: none;
+    display: flex;
+  }
+  .menu-bar ul li {
+    /* width: 120px; */
+    padding: 10px 17px;
+    /* text-align: center; */
+    position: relative;
+  }
+  .menu-bar ul li a {
+    font-size: 20px;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .menu-bar ul li a:hover {
     color: var(--blue);
-}
+  }
+  .fas {
+    float: right;
+    margin-left: 10px;
+    padding-top: 3px;
+  }
+  /* dropdown menu style */
+  .dropdown-menu {
+    display: none;
+  }
+  .menu-bar ul li:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: var(--pinky);
+  }
+  .menu-bar ul li:hover .dropdown-menu ul {
+    display: block;
+    margin: 10px;
+    
+  }
+  .menu-bar ul li:hover .dropdown-menu ul li {
+    width: 208px;
+    padding: 15px;
+  }
+  .dropdown-menu-1 {
+    display: none;
+  }
+
+ 
+  .dropdown-menu ul li:hover .dropdown-menu-1 {
+    display: block;
+    position: absolute;
+    left: 216px;
+    top: 0;
+    background-color: var(--pinky);
+  }
 header .icons a{
     font-size: 2.5rem;
     color: #333;
-    margin-left: 1.5rem;
+   
 }
 header .icons a:hover{
     color: var(--blue);

@@ -12,14 +12,77 @@
             <label for="toggler" class="fas fa-bars"></label>
              
             <a href="#" class="logo">නටමුද<span>.lk</span></a>
+              
+            <div class="menu-bar">
+               
+                <ul>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#">Dance Jouerny <i class="fas fa-caret-down"></i></a>
+                      <div class="dropdown-menu">
+                          <ul>
+                            <li>
+                              <a href="#">Dance Styles  <i class="fas fa-caret-right"></i></a>
+                              
+                              <div class="dropdown-menu-1">
+                                <ul>
+                                    <li><a href="#">Local Dance</a></li>
+                                    <li><a href="#">Western Dance</a></li>
+                                    <li><a href="#">Bharatanatyam <i class="fas fa-caret-right"></i></a>
+                                        <div class="dropdown-menu-1">
+                                            <ul>
+                                                <li><a href="#">About Bharatanatyam</a></li>
+                                                <li><a href="#">Exam Details</a></li>
+                                                <li><a href="#">Exam Centers</a></li>
+                                                <li><a href="#">Rules and Regulations</a></li>
+                                                <li><a href="#">Exam Preparation Tips</a></li>
+                                            </ul>
+                                          </div>
+                                    </li>
+                                    <li><a href="#">more..</a></li>
+                                </ul>
+                              </div>
+                            </li>
+                            <li>
+                                <a href="#">University Degrees</a>
+                                
+                              </li>
+                              <li>
+                                <a href="#">Tutorials  <i class="fas fa-caret-right"></i></a>
+                                
+                                <div class="dropdown-menu-1">
+                                  <ul>
+                                      <li><a href="#">Dance Basics</a></li>
+                                      <li><a href="#">Surprise Dance</a></li>
+                                      <li><a href="#">Wedding Dance</a></li>
+                                      <li><a href="#">Dance Workouts</a></li>
+                                      <li><a href="#">more..</a></li>
+                                  </ul>
+                                </div>
+                              </li>   
+                          </ul>
+                        </div>
+                  </li>
+                  <li><a href="#products">Professionals <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-menu">
+                        <ul>
+                          <li><a href="#">Choreographers</a></li>
 
-            <nav class="navbar">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#products">Products</a>
-                <a href="#review">review</a>
-                <a href="#contact">contact</a>   
-            </nav>
+                          <li>
+                            <a href="#">Costume Designers  <i class="fas fa-caret-right"></i></a>
+                            
+                            <div class="dropdown-menu-1">
+                              <ul>
+                                  <li><a href="#">Shop Costumes</a></li>
+    
+                              </ul>
+                            </div>
+                          </li>
+              </div>
+              <li><a href="#review">Review</a>
+              </li>
+              <li><a href="#contact">contact us</a>
+              </li>
             <div class="icons">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-save"></a>
@@ -62,7 +125,7 @@
             <h1 class="heading"><span> about </span> us </h1>
             <div class="row">
                 <div class="video-container">
-                    <video src="{{ url_for('static', filename='images/song2') }}" loop autoplay muted></video>
+                    <video src="{{ url_for('static', filename='images/song2.mp4') }}" loop autoplay muted></video>
                     <h3>Best Dancing Services</h3>
                 </div> 
                 <div class="content">
