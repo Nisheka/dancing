@@ -4,9 +4,26 @@
         <title>Dancing website</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+        <script src="../static/js/calendar.js"></script>
+        <script src="../static/js/stickybtn.js"></script>
+        
       
     </head>
     <body>
+
+        <!-- sticky button calendar -->
+        
+            <button class="sticky-cal-button" id="myStickyButton" onclick="openCal()">Calendar</button>
+            <div id="Calpopup" class="modal">
+                
+            </div>
+            
+
+
+
+        
+
+
         <header>
             <input type="checkbox" name="" id="toggler">
             <label for="toggler" class="fas fa-bars"></label>

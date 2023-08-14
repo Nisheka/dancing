@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = 'cairocoders-ednalan'
  
 DB_HOST = "localhost"
-DB_NAME = "NewDB"
+DB_NAME = "newdb"
 DB_USER = "postgres"
 DB_PASS = "Tharu*99"
  
@@ -36,8 +36,11 @@ def search():
 def rating():
     # Add your logic for the search functionality here
     return render_template('rating.html')
-   
 
+
+@app.route('/calendar')
+def calendar():
+    return render_template('calendar.html')
 
 @app.route('/signup', methods=['POST'])
 def signup():
