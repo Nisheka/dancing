@@ -6,12 +6,16 @@ app = Flask(__name__)
 app.secret_key = 'cairocoders-ednalan'
  
 DB_HOST = "localhost"
-DB_NAME = "newdb"
+DB_NAME = "NewDB"
 DB_USER = "postgres"
 DB_PASS = "Tharu*99"
- 
-conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
- 
+
+try:
+    conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
+    print("Connected to the database successfully!")
+except psycopg2.OperationalError as e:
+    print("Error:", e)
+
 
 app = Flask(__name__)
 app.static_folder = 'static'  # Set static folder as 'static' directory in your Flask application
