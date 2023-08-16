@@ -743,6 +743,7 @@ button:hover{
       }
 }
 
+<<<<<<< HEAD
 
 /********** Notice Bord and Upcoming Events CSS Starts **********/  
 .notice-board-sect {
@@ -837,3 +838,26 @@ button:hover{
     padding-top: 9px;
 }
 /********** Notice Bord and Upcoming Events CSS Ends **********/
+=======
+/* sticky button */
+.sticky-cal-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+
+>>>>>>> bb209fe92f22746f3f5c573ed24b752ee8f9d735
