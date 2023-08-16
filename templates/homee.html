@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dancing website</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+        
+      
+    </head>
+    <body>
+        <header>
+            <input type="checkbox" name="" id="toggler">
+            <label for="toggler" class="fas fa-bars"></label>
+             
+            <a href="#" class="logo">නටමුද<span>.lk</span></a>
+              
+            <div class="menu-bar">
+               
+                <ul>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#">Dance journey <i class="fas fa-caret-down"></i></a>
+                      <div class="dropdown-menu">
+                          <ul>
+                            <li>
+                              <a href="#">Dance Styles  <i class="fas fa-caret-right"></i></a>
+                              
+                              <div class="dropdown-menu-1">
+                                <ul>
+                                    <li><a href="{{ url_for('Local') }}">Classical Dance</a></li>
+                                    <li><a href="#">Western Dance</a></li>
+                                    <li><a href="#">Bharatanatyam <i class="fas fa-caret-right"></i></a>
+                                        <div class="dropdown-menu-1">
+                                            <ul>
+                                                <li><a href="#">About Bharatanatyam</a></li>
+                                                <li><a href="#">Exam Details</a></li>
+                                                <li><a href="#">Exam Centers</a></li>
+                                                <li><a href="#">Rules and Regulations</a></li>
+                                                <li><a href="#">Exam Preparation Tips</a></li>
+                                            </ul>
+                                          </div>
+                                    </li>
+                                    <li><a href="#">more..</a></li>
+                                </ul>
+                              </div>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('uni') }}">University Degrees</a>
+                                
+                              </li>
+                              <li>
+                                <a href="{{ url_for('tutorial') }}">Tutorials  <i class="fas fa-caret-right"></i></a>
+                                
+                                <div class="dropdown-menu-1">
+                                  <ul>
+                                      <li><a href="#">Dance Basics</a></li>
+                                      <li><a href="#">Surprise Dance</a></li>
+                                      <li><a href="#">Wedding Dance</a></li>
+                                      <li><a href="#">Dance Workouts</a></li>
+                                      <li><a href="#">more..</a></li>
+                                  </ul>
+                                </div>
+                              </li>   
+                          </ul>
+                        </div>
+                  </li>
+                  <li><a href="#products">Professionals <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-menu">
+                        <ul>
+                          <li><a href="{{ url_for('search') }}">Choreographers</a></li>
+
+                          <li>
+                            <a href="{{ url_for('search') }}">Costume Designers  <i class="fas fa-caret-right"></i></a>
+                            
+                            <div class="dropdown-menu-1">
+                              <ul>
+                                  <li><a href="{{ url_for('coustume') }}">Shop Costumes</a></li>
+    
+                              </ul>
+                            </div>
+                          </li>
+              </div>
+              <li><a href="#review">Review</a>
+              </li>
+              <li><a href="#contact">contact us</a>
+              </li>
+            <div class="icons">
+                <!--<a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-save"></a>-->
+                <a href="#" class="fas fa-user"></a>
+            </div>
+        </header>
+<!-- home section starts-->
+         <section class="home" id="home">
+            <div class="cols cols0">
+                <span class="topline"> Hello </span>
+                <h1>I'm <span class="multitest"></span></h1>
+                <p>the website is to provide a comprehensive online resource for dancers, and anyone interested in dance and to create a dynamic and vibrant online community for the dance community</p>
+                <div class="btns">
+                    <a href="{{ url_for('search') }}">
+                    <button>search</button>
+                    </a>
+                    <a href="{{ url_for('home') }}">
+                    <button>Logout</button>
+                </a>
+                </div>  
+            </div>
+            <div class="home-img">
+                <!-- Update the image URL with the correct endpoint and filename value -->
+              <img src="{{ url_for('static', filename='images/Watergirl.png') }}" alt="Watergirl">
+   
+            </div>
+         </section>
+         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+         <script>
+            var typingEffect = new Typed(".multitest",{
+                strings : ["Dancer", "Costume designer", "Choreographer"],
+                loop : true,
+                typeSpeed : 100,
+                backSpeed : 80,
+                backDelay :1500
+            })
+         </script>
+         <!--about section starts-->
+        <section class="about" id="about">
+            <h1 class="heading"><span> about </span> us </h1>
+            <div class="row">
+                <div class="video-container">
+                    <video src="{{ url_for('static', filename='images/song2.mp4') }}" loop autoplay muted></video>
+                    <h3>Best Dancing Services</h3>
+                </div> 
+                <div class="content">
+                    <h3>why choose us</h3>
+                    <p>A web-based application for dancers to promote dance and provide resources and opportunities for people to engage with the dance community.
+                       Some features of this website include a dance events calendar,  a directory of the nearest dance choreographers, Artist profiles and dance videos and workshops.
+                       In addition to that using a chatbot system that makes the system not dull for every dance user to use to guide their "Visharad" exam and direction of university studies. </p>
+                    <p>The website is to provide a comprehensive online resource for dancers, and anyone interested in dance and to create a dynamic and vibrant online community for the dance community</p>
+                    <a href="#"class="btn">learn more</a>
+                </div>
+            </div>
+
+        </section>
+       <!--icons section starts-->
+        <section class="icons-container">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/search.png') }}" alt="">
+                <div class="info" >
+                    <h3>free searching</h3>
+                    <span>on all choreographers</span>
+    <!-- Update the anchor tag in home.html -->
+                    <a href="{{ url_for('search') }}" class="btn">Quick search</a>
+                    
+                </div>
+            </div>
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/search.png') }}" alt="">
+                <div class="info">
+                    <h3>free searching</h3>
+                    <span>on all Costume designers</span>
+                    <a href="#"class="btn">Quik search</a>
+                </div>
+            </div>
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/video.png') }}" alt="">
+                <div class="info">
+                    <h3>free tutor</h3>
+                    <span>on all types</span>
+                    <a href="{{ url_for('tutorial') }}"class="btn">Quik search</a>
+                </div>
+            </div>
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/learn.png') }}" alt="">
+                <div class="info">
+                    <h3>free searching</h3>
+                    <span>on all dancing types</span>
+                    <a href="#"class="btn">Quik search</a>
+                </div>
+            </div>
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/graduate.png') }}" alt="">
+                <div class="info">
+                    <h3>Searching degrees</h3>
+                    <span>on all dancing types</span>
+                    <a href="{{ url_for('degrees_page') }}"class="btn">Quik search</a>
+                </div>
+            </div>
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/noun-dancing-1579906.png') }}" alt="">
+                <div class="info">
+                    <h3>Searching vishard</h3>
+                    <span>on all indian dancing types</span>
+                    <a href="#" class="btn">Quik search</a>
+                </div>
+            </div>
+        </section>
+        <section><!---------- Notice Bord and Upcoming Events HTML Starts --------->
+            <div class="main-section bg-grey">
+               <div class="container">
+                  <div class="width-50">
+                     <div class="notice-board-sect">
+                                      
+                        
+                  <div class="width-50">
+                     <div class="notice-board-sect">
+                        <h2><i class="fa fa-id-card" aria-hidden="true"></i> Upcoming Events</h2>
+                        <div class="notice-board">
+                           <marquee direction="up" scrollamount="4" height="400">
+                              <ul class="event-list">
+                                 <li>
+                                    <div class="event-date">
+                                       <h3>27 <br>
+                                          April
+                                       </h3>
+                                       <p>9:00 PM<br>
+                                          4:00 AM
+                                       </p>
+                                    </div>
+                                    <div class="event-content">
+                                       <h5> The Dance Complex | Dance classes for kids and adults, dance performances | , 2022-23</h5>
+                                       <a href="#"><i class="fa fa-user icon"></i></i> Join bood</a> <a  href="#"><i class="fa fa-map-marker"></i> New Yark</a>
+                                       <p>Cambridge and Bostont 2022-23</p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="event-date">
+                                       <h3>27 <br>
+                                          April
+                                       </h3>
+                                       <p>9:00 PM<br>
+                                          4:00 AM
+                                       </p>
+                                    </div>
+                                    <div class="event-content">
+                                       <h5> Annual Summer Dance Camp! 20-Dec-203</h5>
+                                       <a href="#"><i class="fa fa-user icon"></i></i> Join bood</a> <a  href="#"><i class="fa fa-map-marker"></i> New Yark</a>
+                                       <p>CAMP STARTS MONDAY!</p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="event-date">
+                                       <h3>27 <br>
+                                          April
+                                       </h3>
+                                       <p>9:00 PM<br>
+                                          4:00 AM
+                                       </p>
+                                    </div>
+                                    <div class="event-content">
+                                       <h5>Art & Dance Camp! ✨🎨🩰</h5>
+                                       <a href="#"><i class="fa fa-user icon"></i></i> Join bood</a> <a  href="#"><i class="fa fa-map-marker"></i> New Yark</a>
+                                       <p>consist of a full day packed with various dance styles, exploring art mediums, and some games and activities in between</p>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </marquee>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!---------- Notice Bord and Upcoming Events HTML Ends ---------></section>
+<!--products section start-->
+        <section class="products" id="products">
+            <h1 class="heading"> latest <span> Services </span></h1>
+            <div class="box-container">
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/tardi05.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Traditional Dancers</h3>
+                        <div class="price"> RS.7000 <span>RS.8000</span> </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/ballet01.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Ballet dancer</h3>
+                        <div class="price">Rs.6500  <span>RS.7000</span> </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/costumedesigner.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Costume designer</h3>
+                        <div class="price"> RS.5000 <span>RS.8000</span> </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/salsa01.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Salsa</h3>
+                        <div class="price"> RS.4000 <span>RS.7000</span> </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/slide-2.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Modern Dancer</h3>
+                        <div class="price"> RS.5000 <span>RS.6000</span> </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/costumedesigner01.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Costume designer</h3>
+                        <div class="price"> RS.6000 <span>RS.9000</span> </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/hip pop.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Hip pop</h3>
+                        <div class="price"> RS.4500 <span>RS.6500</span> </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/costumedesigner02.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Costume designer</h3>
+                        <div class="price"> RS.6500 <span>RS.8000</span> </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='images/tardi02.jpg') }}" alt="">
+                        <div class="icon">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Save</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Traditional dancer</h3>
+                        <div class="price"> RS.4500 <span>RS.6000</span> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!--review section starts-->
+        <section class="review" id="review">
+            <h1 class="heading">  customer's <span> review </span> </h1>
+            <div class="box-container">
+                <div class="box">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <P>A web-based application for dancers to promote dance and provide resources and opportunities for people to engage with the dance community.
+                        Some features of this website include a dance events calendar,  a directory of the nearest dance choreographers, Artist profiles and dance videos and workshops.
+                        In addition to that using a chatbot system that makes the system not dull for every dance user to use to guide their "Visharad" exam and direction of university studies.</P>
+                        <div class="user">
+                            <img src="{{ url_for('static', filename='images/girl01.jpg') }}" alt="">
+                            <div class="user-info">
+                                <h3>Tharushi</h3>
+                                <span>happy customer</span>
+                            </div>
+                        </div>
+                        <span class="fas fa-quote-right"></span>
+                </div>
+                <div class="box">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <P>A web-based application for dancers to promote dance and provide resources and opportunities for people to engage with the dance community.
+                        Some features of this website include a dance events calendar,  a directory of the nearest dance choreographers, Artist profiles and dance videos and workshops.
+                        In addition to that using a chatbot system that makes the system not dull for every dance user to use to guide their "Visharad" exam and direction of university studies.</P>
+                        <div class="user">
+                            <img src="{{ url_for('static', filename='images/boy01.jpg') }}" alt="">
+                            <div class="user-info">
+                                <h3>john deo</h3>
+                                <span>happy customer</span>
+                            </div>
+                        </div>
+                        <span class="fas fa-quote-right"></span>
+                </div>
+                <div class="box">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <P>A web-based application for dancers to promote dance and provide resources and opportunities for people to engage with the dance community.
+                        Some features of this website include a dance events calendar,  a directory of the nearest dance choreographers, Artist profiles and dance videos and workshops.
+                        In addition to that using a chatbot system that makes the system not dull for every dance user to use to guide their "Visharad" exam and direction of university studies.</P>
+                        <div class="user">
+                            <img src="{{ url_for('static', filename='images/girl02.jpg') }}" alt="">
+                            <div class="user-info">
+                                <h3>Pathumi</h3>
+                                <span>happy customer</span>
+                            </div>
+                        </div>
+                        <span class="fas fa-quote-right"></span>
+                </div>
+            </div> 
+        </section>
+<!--contact  section starts-->
+        <section class="contact" id="contact">
+            <h1 class="heading"><span> contact </span> us </h1>
+            <div class="row">
+                <form action="">
+                    <input type="text" placeholder="name" class="box">
+                    <input type="email" placeholder="email" class="box">
+                    <input type="number" placeholder="number" class="box">
+                    <textarea name="" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
+                    <input type="submit" value="send message" class="btn">
+                </form>
+                <div class="image">
+                    <img src="{{ url_for('static', filename='images/img1.jpg') }}" alt="">
+                </div>
+            </div>
+        </section>
+<!--footer section starts-->
+        <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#products">Products</a>
+                    <a href="#review">review</a>
+                    <a href="#contact">contact</a> 
+                </div>
+
+                <div class="box">
+                    <h3>extra links</h3>
+                    <a href="#">my account</a>
+                    <a href="#">my order</a>
+                    <a href="#">my favorite</a>
+                </div>
+
+                <div class="box">
+                    <h3>locations</h3>
+                    
+                    <a href="#">sri lanka</a>
+                
+                </div>
+
+                <div class="box">
+                    <h3>contact info</h3>
+                    <a href="#">038 2243123</a>
+                    <a href="#">example@gmail.com</a>
+                    <a href="#">colombo</a>
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="credit">create by <span> ms.tharushi de silva</span> | all rights reserved </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+    </body>
+</html>

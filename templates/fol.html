@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Local Dancing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+</head>
+
+<body>
+<nav id="sidebar">
+    <h2>Classical Dance</h2>
+    <ul>
+        <li><a class="nav-item" href="{{ url_for('Local') }}">Introduction</a></li>
+        <li><a class="nav-item" href="{{ url_for('kandy') }}">Kandyan dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('lowc') }}">Low Country dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('saba') }}">Sabaragamu dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('dev') }}">Devil dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('fol') }}">Folk dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('dar') }}">Dance drama</a></li>
+        <li><a class="nav-item" href="{{ url_for('home') }}">Home</a></li>
+    </ul>
+</nav>
+<main id="documentation">
+    <div class="blog" id="Blog">
+        <h1>Folk dance- Sri Lankan Classical Dance</h1>
+        <div class="blog_box">
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/fo01.jpg') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"></p>History
+                    <p>
+                        Folk dances in Sri Lanka hold cultural significance and are closely linked to traditional activities and celebrations. 
+                        They offer a glimpse into the local way of life and heritage.
+                    </p>
+                    <p>
+                        Leekeli (Stick Dance):
+                        <br>
+                        <br>
+                        The Leekeli, or stick dance, is a captivating folk dance that involves rhythmic movements with sticks. It likely originated from rural 
+                        communities and is often performed during festive occasions to entertain and engage the audience. 
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="blog_card_2">
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i>   Kalagedi (Pot Dance):</p>
+                    <p>
+                     
+                        The Kalagedi, or pot dance, is a vibrant folk performance where dancers skillfully balance pots on their heads while dancing. 
+                        This dance is not only an artistic display but also a reflection of the dexterity of local craftsmen.
+                    </p>
+                </div>
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/fo02.jpg') }}">
+                </div>
+            </div>
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/fo03.jpeg') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i></p>
+                    <p>
+                        <p>  Raban (Hand Drum) Dance:</p>
+                        <p>
+                            
+                            The Raban dance involves skilled drummers who play the raban, a hand drum, while dancing. This rhythmic
+                             performance is closely tied to traditional celebrations and showcases the rhythm and musicality inherent in Sri Lankan culture.  
+                        </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

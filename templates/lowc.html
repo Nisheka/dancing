@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Local Dancing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+</head>
+
+<body>
+<nav id="sidebar">
+    <h2>Classical Dance</h2>
+    <ul>
+        <li><a class="nav-item" href="{{ url_for('Local') }}">Introduction</a></li>
+        <li><a class="nav-item" href="{{ url_for('kandy') }}">Kandyan dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('lowc') }}">Low Country dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('saba') }}">Sabaragamu dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('dev') }}">Devil dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('fol') }}">Folk dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('dar') }}">Dance drama</a></li>
+        <li><a class="nav-item" href="{{ url_for('home') }}">Home</a></li>
+    </ul>
+</nav>
+<main id="documentation">
+    <div class="blog" id="Blog">
+        <h1>Low Country dances (Pahatharata Natum)- Sri Lankan Classical Dance</h1>
+        <div class="blog_box">
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/paha01.jpg') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"></p>Kolam
+                    <p>
+                        Kolam, a unique performing art in Sri Lanka, traces its roots to various groups and families across the country. 
+                        Key areas include Ambalangoda, Bentara, and Matara. The dance flourished from 1800 to 1950, serving both entertainment
+                         and spiritual purposes. 
+                        However, modernization and lack of sponsorship led to its decline.
+
+                    </p>
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="blog_card_2">
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i>Kolam Dance and Mask:</p>
+                    <p>
+                        
+The sole Conservation Center for Traditional Kolam Dance and Mask in Sri Lanka, sponsored by the government, 
+resides in the ancestral home of the Tukka Wadu Generation in Maha-Ambalangoda.
+                    </p>
+                </div>
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/pha02.jpg') }}">
+                </div>
+            </div>
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/paha03.jpg') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i></p>
+                    <p>
+                        <p>   Components of Kolam Dance:</p>
+                        <p>
+                         
+                            Kolam Dance encompasses various elements, including:
+                            
+                            General Characters of Monarchy: Depicting individuals from historical monarchies.
+                            Imaginary Characters: Showcasing unique and distinct dancing styles.
+                            Popular Legends and Folktales: Incorporating well-known stories from local traditions.
+                            Religious Stories: Linking narratives to Buddha's previous lives and spiritual teachings.
+                        </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

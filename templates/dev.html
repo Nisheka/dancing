@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Local Dancing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+</head>
+
+<body>
+<nav id="sidebar">
+    <h2>Classical Dance</h2>
+    <ul>
+        <li><a class="nav-item" href="{{ url_for('Local') }}">Introduction</a></li>
+        <li><a class="nav-item" href="{{ url_for('kandy') }}">Kandyan dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('lowc') }}">Low Country dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('saba') }}">Sabaragamu dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('dev') }}">Devil dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('fol') }}">Folk dances</a></li>
+        <li><a class="nav-item" href="{{ url_for('dar') }}">Dance drama</a></li>
+        <li><a class="nav-item" href="{{ url_for('home') }}">Home</a></li>
+    </ul>
+</nav>
+<main id="documentation">
+    <div class="blog" id="Blog">
+        <h1>Devil dances - Sri Lankan Classical Dance</h1>
+        <div class="blog_box">
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/de01.jpg') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"></p>History
+                    <p>
+                        "Devil Dances" are a response to the belief that certain ailments and misfortunes are caused by unseen forces. 
+                        These dances aim to chase away these negative influences to facilitate the patient's healing and well-being.  
+                    </p>
+                    <p>
+                        <p class="date"></p> Masks:
+                        <br>
+                        <br>
+                        Different masks depict various characters, and dancers wear them during processions and ceremonies.  
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="blog_card_2">
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i>  Components and Preparation:</p>
+                    <p>
+                       
+                        The devil dance ritual involves building a stage, decorations, and costume preparation. The intricate stage,
+                         often made from natural materials, sets the scene for the dances.
+                         Drummers accompany the dances, signaling the start of the ritual and drawing community participation.   
+                       
+                    </p>
+                </div>
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/de02.jpg') }}">
+                </div>
+            </div>
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/de03.jpg') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i></p>
+                    <p>
+                        <p>Duration and Consumables:</p>
+                        <p>
+                            
+                            The full ritual can extend into the morning hours, with dancers staying awake by consuming betel-nut juice and drinks.
+                             Depending on the circumstances, dances may continue for multiple days, maintaining a strong \
+                             connection to the community's traditions.
+                            
+                        </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

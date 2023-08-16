@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dancing website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uni.css') }}">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Replace 'YOUR_API_KEY' with your actual Google Maps API key -->
+  
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbM1xNiw35FFaAQFOmannYeU4l-OjXnfA&callback=initMap" async defer></script>
+
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 6.9271, lng: 79.8612 }, // Center the map on a specific location
+                zoom: 8 // Adjust the zoom level as needed
+            });
+            
+            var universityLocations = [
+                { name: 'Sri Palee Campus', location: { lat: 6.707990167334294, lng: 80.07007016649396 } }, 
+                { name: 'Swami Vipulananda Institute of Aesthetic Studies', location: { lat: 7.7003418020380225, lng:  81.71814061068282 } },
+                { name: 'Faculty of Sir pon.Ramanthan Performing and Visual Arts', location: { lat: 9.73217378247889, lng:  80.02632511801397 } },
+                { name: 'University of Sri Jayewardenepura,Faculty Of Humanities and Social Sciences', location: { lat: 6.854242912639122, lng:  79.90537054232699 } },
+                { name: 'University of Visual and Performing Arts', location: { lat: 6.922226934785949, lng: 79.86161340495353 } },
+                { name: 'University of Kelaniya', location: { lat:  6.975712026260328, lng:  79.91567141231518 } },
+                { name: 'University of Peradeniya', location: { lat:   7.255101822622593, lng:  80.59751896680005 } },
+                { name: 'University of Visual & Performing arts - Dehiwala', location: { lat: 6.867333987818448, lng: 79.86693785761148 } }
+            ];
+            
+    
+            universityLocations.forEach(function (university) {
+                var marker = new google.maps.Marker({
+                    position: university.location,
+                    map: map,
+                    title: university.name
+                });
+    
+                var infowindow = new google.maps.InfoWindow({
+                    content: university.name
+                });
+    
+                marker.addListener('click', function () {
+                    infowindow.open(map, marker);
+                });
+            });
+        }
+    </script>
+
+    
+    
+</head>
+
+
+
+
+<!---------- Slider HTML Starts --------->
+<div class="width-100">
+    <img src="{{ url_for('static', filename='images/cam.jpg') }}" class="main-banner">
+    </div>
+    <!---------- Slider HTML Ends --------->
+    <!---------- Campus Information HTML Starts ---------><section>
+<div class="main-section bg-lightgrey">
+    <div class="container">
+       <div class="width-50">  </div>
+       <div class="width-50">
+          <div class="about-campus">
+
+             <h2 class="heading-text">Campus Information</h2>
+             
+             <span class="heading-border"></span>
+             <p>Discover the rhythm within you at Genius 2023 – the gateway to government universities specializing in dance degrees in Sri Lanka. Unleash your passion for dance and immerse yourself in a world of artistic expression and skill development. Join us at, where the Best Government Campus in Sri Lanka invites you to nurture your talent and explore the dynamic realm of dance. </p>
+             <div class="width-50">
+                <ul>
+                   <li><i class="fa fa-check"></i> The Best  University</li>
+                   <li><i class="fa fa-check"></i> The Best  University</li>
+                   <li><i class="fa fa-check"></i> The Best  University</li>
+                </ul>
+             </div>
+             <div class="width-50">
+                <ul>
+                   <li><i class="fa fa-check"></i> The Best  University</li>
+                   <li><i class="fa fa-check"></i> The Best  University</li>
+                   <li><i class="fa fa-check"></i> The Best  University</li>
+                </ul>
+             </div>
+           
+
+             
+             <div class="width-100"> 
+              
+              <a href="{{ url_for('degrees_page') }}"> Find Your course <i class="fa fa-arrow-right"></i></a> </div>
+          </div>
+       </div>
+    </div>
+    <div class="back-button-container">
+      <a href="{{ url_for('home') }}" class="back-button">Back to Home <i class="fa fa-arrow-left"></i></a>
+  </div>
+ </div>
+</section>
+ <section>
+ <!------TOP COMPANY SECTION TOP COMPANY SECTION TOP COMPANY SECTION----->
+<div class="width-100 top-company">
+    <div class="container">
+      <h2 class="top-company-heading">Top Universities</h2>
+      <p class="top-company-sub-heading">List of Top Universities </p>
+      <!-----START COMPANY LIST----->
+      <div class="width-25">
+        <div class=" company-list">
+          <div class="width-100">
+            <div class="width-25 company-image">
+              <img src="{{ url_for('static', filename='images/sri palee.jpeg') }}">
+            </div>
+            <div class="width-75">
+              <h4 class="company-name">University of <br>Kelaniya</h4>
+              <p class="company-rating">
+                
+              </p>
+              
+            </div>
+          </div>
+          <div class="width-50 company-address"></div>
+          <div class="width-50 company-opening"> </p>
+          </div>
+        </div>
+      </div>
+      <div class="width-25">
+        <div class=" company-list">
+          <div class="width-100">
+            <div class="width-25 company-image">
+              <img src="{{ url_for('static', filename='images/sri palee.jpeg') }}">
+            </div>
+            <div class="width-75">
+              <h4 class="company-name">Eastern University</h4>
+              <p class="company-rating">
+                
+              </p>
+              
+            </div>
+          </div>
+          <div class="width-50 company-address"></div>
+          <div class="width-50 company-opening"> </p>
+          </div>
+        </div>
+      </div>
+      <div class="width-25">
+        <div class=" company-list">
+          <div class="width-100">
+            <div class="width-25 company-image">
+              <img src="{{ url_for('static', filename='images/sri palee.jpeg') }}">
+            </div>
+            <div class="width-75">
+              <h4 class="company-name">Sri Palee Campus of the University of Colombo</h4>
+              <p class="company-rating">
+                
+              </p>
+              
+            </div>
+          </div>
+          <div class="width-50 company-address"></div>
+          <div class="width-50 company-opening"> </p>
+          </div>
+        </div>
+      </div>
+      <!-----START COMPANY LIST----->
+      <div class="width-25">
+        <div class=" company-list">
+          <div class="width-100">
+            <div class="width-25 company-image">
+              <img src="{{ url_for('static', filename='images/vpf.png') }}">
+            </div>
+            <div class="width-75">
+              <h4 class="company-name">University of <br> the Visual <br>and <br>Performing <br> Arts </h4>
+              <p class="company-rating">
+                
+              </p>
+             
+            </div>
+          </div>
+          <div class="width-50 company-address"></div>
+          <div class="width-50 company-opening"> </p>
+          </div>
+        </div>
+      </div>
+      <!-----START COMPANY LIST----->
+      <div class="width-25">
+        <div class=" company-list">
+          <div class="width-100">
+            <div class="width-25 company-image">
+              <img src="{{ url_for('static', filename='images/japura.png') }}">
+            </div>
+            <div class="width-75">
+              <h4 class="company-name">University of <br> Sri Jayewardenepura</h4>
+              <p class="company-rating">
+               
+              </p>
+              <p class="company-review"></p>
+            </div>
+          </div>
+          <div class="width-50 company-address"></div>
+          <div class="width-50 company-opening"></p>
+          </div>
+        </div>
+      </div>
+      <!-----START COMPANY LIST----->
+      <div class="width-25">
+        <div class=" company-list">
+          <div class="width-100">
+            <div class="width-25 company-image">
+              <img src="{{ url_for('static', filename='images/pera.jpeg') }}">
+            </div>
+            <div class="width-75">
+              <h4 class="company-name">University of Peradeniya</h4>
+              <p class="company-rating">
+                
+              </p>
+              <p class="company-review"></p>
+            </div>
+          </div>
+          <div class="width-50 company-address"></div>
+          <div class="width-50 company-opening"></p>
+          </div>
+        </div>
+      </div>
+      <!-----START COMPANY LIST----->
+      <div class="width-25">
+        <div class=" company-list">
+          <div class="width-100">
+            <div class="width-25 company-image">
+              <img src="{{ url_for('static', filename='images/jaff.jpeg') }}">
+            </div>
+            <div class="width-75">
+              <h4 class="company-name">University of Jaffna</h4>
+              <p class="company-rating">
+                
+              </p>
+              <p class="company-review"></p>
+            </div>
+          </div>
+          <div class="width-50 company-address"></div>
+          <div class="width-50 company-opening"></p>
+          </div>
+        </div>
+      </div>
+      <!-----START COMPANY LIST------>
+      <div class="width-25">
+        <div class=" company-list">
+          <div class="width-100">
+            <div class="width-25 company-image">
+              <img src="{{ url_for('static', filename='images/open.jpeg') }}">
+            </div>
+            <div class="width-75">
+              <h4 class="company-name">Open University of Sri Lanka</h4>
+              <p class="company-rating">
+                
+              </p>
+              <p class="company-review"></p>
+            </div>
+          </div>
+          <div class="width-50 company-address"></div>
+          <div class="width-50 company-opening"></p>
+          </div>
+        </div>
+      </div>
+     
+  </section>
+  <section>
+ <!---------- Campus Information HTML Ends --------->
+<!-----RECENT JOB SECTION RECENT JOB SECTION RECENT JOB SECTION ----->
+<div class="width-100 recent-job">
+    <div class="container">
+      <h2 class="recent-job-heading">RECENT Degree Programms</h2>
+      <p class="recent-job-sub-heading">Get the list of all recent degrees </p>
+      <!-----JOB LIST----->
+      <div class="width-50">
+        <div class="recent-job-list">
+          <div class="width-100">
+            <h4 class="job-title">Postgraduate</h4>
+            <p class="job-company">Master of Philosophy (M.Phil) and Doctor of Philosophy (Ph.D) in Tamil, Fine Arts, Drama &Theatre and Geography <i class=></i>  </p>
+          </div>
+          <div class="width-33">
+            <i class=></i> 1 to 4 Years
+          </div>
+          <div class="width-33">
+            <i class=></i> 
+          </div>
+          <div class="width-33">
+            <i class=></i> 
+          </div>
+          <div class="width-100">
+            <p class="job-skill">
+              <b> </b>
+            </p>
+          </div>
+          <div class="width-100">
+            <a href="#" ></a>
+          </div>
+        </div>
+      </div>
+      <!-----JOB LIST------>
+      <div class="width-50">
+        <div class="recent-job-list">
+          <div class="width-100">
+            <h4 class="job-title">Undergraduate</h4>
+            <p class="job-company">Bachelor of Arts (Special) in Fine Arts/ <br>(Dance) <i class=></i>  </p>
+          </div>
+          <div class="width-33">
+            <i class=></i> 1 to 4 Years
+          </div>
+          <div class="width-33">
+            <i class=></i> 
+          </div>
+          <div class="width-33">
+            <i class=></i> 
+          </div>
+          <div class="width-100">
+            <p class="job-skill">
+              <b></b>
+            </p>
+          </div>
+          <div class="width-100">
+            <a href="#" ></a>
+          </div>
+        </div>
+      </div>
+      <!-----JOB LIST----->
+      <div class="width-50">
+        <div class="recent-job-list">
+          <div class="width-100">
+            <h4 class="job-title">Postgraduate</h4>
+            <p class="job-company">Degree of Master of Performing Arts in Dance <i class=></i>  </p>
+          </div>
+          <div class="width-33">
+            <i class=></i> 1 to 2 Years
+          </div>
+          <div class="width-33">
+            <i class=></i> 
+          </div>
+          <div class="width-33">
+            <i class=></i> 
+          </div>
+          <div class="width-100">
+            <p class="job-skill">
+              <b> </b>
+            </p>
+          </div>
+          <div class="width-100">
+            <a href="#" ></a>
+          </div>
+        </div>
+      </div>
+      <!-----JOB LIST----->
+      <div class="width-50">
+        <div class="recent-job-list">
+          <div class="width-100">
+            <h4 class="job-title">Postgraduate</h4>
+            <p class="job-company">Degree of  Master of Arts in Dance  <i class=></i>  </p>
+          </div>
+      
+          <div class="width-33">
+            1 to 2 Years
+            <i class=></i>
+          
+              <b> </b>
+            </p>
+          </div>
+          <div class="width-100">
+            <a href="#" ></a>
+          </div>
+        </div>
+      </div>
+      <!-----JOB LIST----->
+      
+</section>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+
+
+</body>
+</html>

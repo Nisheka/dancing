@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Local Dancing</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+        
+      
+    </head>
+
+<body>
+    <nav id="sidebar">
+        <h2>Classical Dance </h2>
+        <ul>
+          <li><a class="nav-item" href="{{ url_for('Local') }}">Introduction</a></li>
+          <li>
+            <a class="nav-item" href="{{ url_for('kandy') }}">Kandyan dances</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ url_for('lowc') }}">Low Country dances</a>
+          </li>
+          <li><a class="nav-item" href="{{ url_for('saba') }}">Sabaragamu dances</a></li>
+          <li><a class="nav-item" href="{{ url_for('dev') }}">Devil dances</a></li>
+          <li>
+            <a class="nav-item" href="{{ url_for('fol') }}">Folk dances</a>
+          </li>
+          <li><a class="nav-item" href="{{ url_for('dar') }}">Dance drama</a></li>
+          <li><a class="nav-item" href="{{ url_for('home') }}">Home</a></li>
+        </ul>
+      </nav>
+    <main id="documentation">
+        <div class="blog" id="Blog">
+            <h1>Kandyan Dance - Sri Lankan Classical Dance</h1>
+    
+            <div class="blog_box">
+    
+                <div class="blog_card">
+                    <div class="blog_img">
+                        <img src="{{ url_for('static', filename='images/tardi01.jpg') }}">
+                    </div>
+                    <div class="blog_tag">
+    
+                        <p class="date">
+                            
+                        </p>
+    
+                        <p>
+                            Kandyan dance (Sinhala: උඩරට නැටුම්) encompasses various dance forms popular and native to the area called Kandy 
+                            of the Central Hills region known as Udarata in Sri Lanka, 
+                            which have today spread to other parts of the country. 
+                            It is an example of Sinhalese culture in Sri Lanka.
+                        </p>
+                        <p>Explore the historical background of Kandyan dance, including its origins, legends, and evolution over time.Present the various types of Kandyan dance styles, such as Ves dance, Naiyandi dance, Udekki dance, Pantheru dance, and more. H
+                            ighlight the unique features and symbolism of each style</p>
+                        
+                    </div>
+                </div>
+    
+                <hr>
+    
+                <div class="blog_card_2">
+                    
+                    <div class="blog_tag">
+    
+                        <p class="date">
+                            <i class=></i>Costume in Kandyan Dance:
+                        </p>
+                        <p>
+                            Dancers don elaborate costumes, with a prominent feature being the Ves costume. 
+                            The attire includes a decorative beaded net on the chest and a headdress that adds height. 
+                            The headdress has a metallic front, and anklets worn produce a distinct metallic rattle.</p>
+                        <p></p>
+                        
+                        <p></p>
+                       
+                             
+                         
+                        
+                      
+                        
+                    </div>
+                    <div class="blog_img">
+                        <img src="{{ url_for('static', filename='images/kandy01.png') }}">
+                    </div>
+                </div>
+    
+       
+    
+                <div class="blog_card">
+                    <div class="blog_img">
+                        <img src="{{ url_for('static', filename='images/line.jpeg') }}">
+                    </div>
+                    <div class="blog_tag">
+    
+                        <p class="date">
+                            <i class=></i>
+                        </p>
+                            
+                        <p>
+                            <p>Music Accompaniment:</p>
+                             
+                            <p>
+                                Kandyan Dance is traditionally accompanied by percussion instruments. The Geta Beraya, a unique drum, takes the lead. To maintain rhythm, dancers use small cymbals known as Thalampota.</p>
+                       
+                            
+                        </p>
+                        <p class="like"><i class=></i></p>
+                        
+                    </div>
+                </div>
+                
+    
+            </div>
+    
+        </div>
+    
+    
+    </main>
+  </body>
+  </html>

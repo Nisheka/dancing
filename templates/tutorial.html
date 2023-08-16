@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Responsive Video Playlist Tutorial</title>
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/tuto.css') }}">
+
+</head>
+<body>
+      
+<div class="container">
+   <div class="back-button-container">
+      <a href="{{ url_for('home') }}" class="back-button">Back to Home <i class="fa fa-arrow-left"></i></a>
+   </div>
+
+   <h1 class="header-topic">Dance Tutorial Videos</h1>
+<div class="container">
+
+   <div class="main-video-container">
+      <video src="{{ url_for('static', filename='images/song2.mp4') }}" loop controls class="main-video"></video>
+      <h3 class="main-vid-title">Dance Cover</h3>
+   </div>
+   
+   
+   <div class="main-video-container">
+      <video src="{{ url_for('static', filename='images/song2.mp4') }}" loop controls class="main-video"></video>
+      <h3 class="main-vid-title">Dance Cover</h3>
+   </div>
+
+   
+   <div class="main-video-container">
+      <video src="{{ url_for('static', filename='images/song2.mp4') }}" loop controls class="main-video"></video>
+      <h3 class="main-vid-title">Dance Cover</h3>
+   </div>
+   <div class="main-video-container">
+      <video src="{{ url_for('static', filename='images/song2.mp4') }}" loop controls class="main-video"></video>
+      <h3 class="main-vid-title">Dance Cover</h3>
+   </div>
+
+   <div class="main-video-container">
+      <video src="{{ url_for('static', filename='images/song2.mp4') }}" loop controls class="main-video"></video>
+      <h3 class="main-vid-title">Dance Cover</h3>
+   </div>
+   
+   
+   <div class="main-video-container">
+      <video src="{{ url_for('static', filename='images/song2.mp4') }}" loop controls class="main-video"></video>
+      <h3 class="main-vid-title">Dance Cover</h3>
+   </div>
+ 
+   
+
+   <div class="video-list-container">
+
+      <div class="list active">
+         <video src="{{ url_for('static', filename='images/song2.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Dance Cover</h3>
+      </div>
+      
+
+      <div class="list">
+         <video src="{{ url_for('static', filename='images/song1.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Wedding Dance</h3>
+      </div>
+
+      
+
+      <div class="list">
+         <video src="{{ url_for('static', filename='images/song3.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Classical Dance</h3>
+      </div>
+
+      <div class="list">
+         <video src="{{ url_for('static', filename='images/song4.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Western Dance</h3>
+      </div>
+
+      <div class="list">
+         <video src="{{ url_for('static', filename='images/song5.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Indian classical dance</h3>
+      </div>
+
+      <div class="list">
+         <video src="{{ url_for('static', filename='images/song6.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Indian dance</h3>
+      </div>
+
+      <div class="list">
+         <video src="{{ url_for('static', filename='images/song7.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Workout Dance</h3>
+      </div>
+
+      <div class="list">
+         <video src="{{ url_for('static', filename='images/song8.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Suprise Dance</h3>
+      </div>
+
+      <div class="list">
+         <video src="{{ url_for('static', filename='images/song9.mp4') }}" class="list-video"></video>
+         <h3 class="list-title">Hip pop</h3>
+      </div>
+
+   </div>
+
+</div>
+
+
+<!-- custom js file link  -->
+<script> 
+let videoList = document.querySelectorAll('.video-list-container .list');
+
+videoList.forEach(vid =>{
+   vid.onclick = () =>{
+      videoList.forEach(remove =>{remove.classList.remove('active')});
+      vid.classList.add('active');
+     
+      let src = vid.querySelector('.list-video').src;
+      let title = vid.querySelector('.list-title').innerHTML;
+     
+      
+      document.querySelector('.main-video-container .main-video').src = src;
+      document.querySelector('.main-video-container .main-video').play();
+      document.querySelector('.main-video-container .main-vid-title').innerHTML = title;
+   
+   };
+});
+</script>
+
+</body>
+</html>

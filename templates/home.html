@@ -4,6 +4,7 @@
         <title>Dancing website</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+        
       
     </head>
     <body>
@@ -26,7 +27,7 @@
                               
                               <div class="dropdown-menu-1">
                                 <ul>
-                                    <li><a href="#">Local Dance</a></li>
+                                    <li><a href="{{ url_for('Local') }}">Classical Dance</a></li>
                                     <li><a href="#">Western Dance</a></li>
                                     <li><a href="#">Bharatanatyam <i class="fas fa-caret-right"></i></a>
                                         <div class="dropdown-menu-1">
@@ -44,11 +45,11 @@
                               </div>
                             </li>
                             <li>
-                                <a href="#">University Degrees</a>
+                                <a href="{{ url_for('uni') }}">University Degrees</a>
                                 
                               </li>
                               <li>
-                                <a href="#">Tutorials  <i class="fas fa-caret-right"></i></a>
+                                <a href="{{ url_for('tutorial') }}">Tutorials  <i class="fas fa-caret-right"></i></a>
                                 
                                 <div class="dropdown-menu-1">
                                   <ul>
@@ -66,14 +67,14 @@
                   <li><a href="#products">Professionals <i class="fas fa-caret-down"></i></a>
                     <div class="dropdown-menu">
                         <ul>
-                          <li><a href="#">Choreographers</a></li>
+                          <li><a href="{{ url_for('search') }}">Choreographers</a></li>
 
                           <li>
-                            <a href="#">Costume Designers  <i class="fas fa-caret-right"></i></a>
+                            <a href="{{ url_for('search') }}">Costume Designers  <i class="fas fa-caret-right"></i></a>
                             
                             <div class="dropdown-menu-1">
                               <ul>
-                                  <li><a href="#">Shop Costumes</a></li>
+                                  <li><a href="{{ url_for('coustume') }}">Shop Costumes</a></li>
     
                               </ul>
                             </div>
@@ -84,9 +85,9 @@
               <li><a href="#contact">contact us</a>
               </li>
             <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-save"></a>
-                <a href="#" class="fas fa-user"></a>
+                <!--<a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-save"></a>-->
+                <a href="{{ url_for('dashboard') }}" class="fas fa-user"></a>
             </div>
         </header>
 <!-- home section starts-->
@@ -164,7 +165,7 @@
                 <div class="info">
                     <h3>free tutor</h3>
                     <span>on all types</span>
-                    <a href="#"class="btn">Quik search</a>
+                    <a href="{{ url_for('tutorial') }}"class="btn">Quik search</a>
                 </div>
             </div>
             <div class="icon">
@@ -180,7 +181,7 @@
                 <div class="info">
                     <h3>Searching degrees</h3>
                     <span>on all dancing types</span>
-                    <a href="#"class="btn">Quik search</a>
+                    <a href="{{ url_for('degrees_page') }}"class="btn">Quik search</a>
                 </div>
             </div>
             <div class="icon">
@@ -192,6 +193,72 @@
                 </div>
             </div>
         </section>
+        <section><!---------- Notice Bord and Upcoming Events HTML Starts --------->
+            <div class="main-section bg-grey">
+               <div class="container">
+                  <div class="width-50">
+                     <div class="notice-board-sect">
+                                      
+                        
+                  <div class="width-50">
+                     <div class="notice-board-sect">
+                        <h2><i class="fa fa-id-card" aria-hidden="true"></i> Upcoming Events</h2>
+                        <div class="notice-board">
+                           <marquee direction="up" scrollamount="4" height="400">
+                              <ul class="event-list">
+                                 <li>
+                                    <div class="event-date">
+                                       <h3>27 <br>
+                                          April
+                                       </h3>
+                                       <p>9:00 PM<br>
+                                          4:00 AM
+                                       </p>
+                                    </div>
+                                    <div class="event-content">
+                                       <h5> The Dance Complex | Dance classes for kids and adults, dance performances | , 2022-23</h5>
+                                       <a href="#"><i class="fa fa-user icon"></i></i> Join bood</a> <a  href="#"><i class="fa fa-map-marker"></i> New Yark</a>
+                                       <p>Cambridge and Bostont 2022-23</p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="event-date">
+                                       <h3>27 <br>
+                                          April
+                                       </h3>
+                                       <p>9:00 PM<br>
+                                          4:00 AM
+                                       </p>
+                                    </div>
+                                    <div class="event-content">
+                                       <h5> Annual Summer Dance Camp! 20-Dec-203</h5>
+                                       <a href="#"><i class="fa fa-user icon"></i></i> Join bood</a> <a  href="#"><i class="fa fa-map-marker"></i> New Yark</a>
+                                       <p>CAMP STARTS MONDAY!</p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="event-date">
+                                       <h3>27 <br>
+                                          April
+                                       </h3>
+                                       <p>9:00 PM<br>
+                                          4:00 AM
+                                       </p>
+                                    </div>
+                                    <div class="event-content">
+                                       <h5>Art & Dance Camp! ✨🎨🩰</h5>
+                                       <a href="#"><i class="fa fa-user icon"></i></i> Join bood</a> <a  href="#"><i class="fa fa-map-marker"></i> New Yark</a>
+                                       <p>consist of a full day packed with various dance styles, exploring art mediums, and some games and activities in between</p>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </marquee>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!---------- Notice Bord and Upcoming Events HTML Ends ---------></section>
 <!--products section start-->
         <section class="products" id="products">
             <h1 class="heading"> latest <span> Services </span></h1>
