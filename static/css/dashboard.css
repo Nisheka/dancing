@@ -437,3 +437,51 @@ nav .profile-details i{
     width: calc(100% - 60px);
   }
 }
+
+
+/* dashboard.css */
+/* ... Existing styles ... */
+
+/* My Account Page */
+.content-header h2{
+
+  padding: 100px;
+}
+.user-details {
+  padding: 120px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.user-details form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-details label {
+  font-weight: bold;
+}
+
+.user-details input[type="text"],
+.user-details input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-details button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.user-details button:hover {
+  background-color: #0056b3;
+}

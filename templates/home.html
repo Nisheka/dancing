@@ -4,19 +4,52 @@
         <title>Dancing website</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-        
+        <script>
+            // JavaScript function to display the confirmation popup
+            function showConfirmationPopup() {
+                var userChoice = confirm("Do you want to recommend a dance?");
+                if (userChoice) {
+                    // User chose to recommend a dance, redirect to the dance recommendation page
+                    window.location.href = "/dance-recommendation";
+                } else {
+                    // User chose not to recommend a dance, redirect to the home page
+                    
+                }
+            }
+    
+            // Function to close the popup when the "Cancel" button is clicked
+            function closePopup() {
+                // Redirect to the home page
+             
+            }
+    
+            // Automatically display the confirmation popup when the page loads
+            window.onload = function() {
+                showConfirmationPopup();
+            };
+        </script>
       
     </head>
     <body>
 
-        <!-- sticky button calendar -->
         
-            <button class="sticky-cal-button" id="myStickyButton" onclick="openCal()">Calendar</button>
-            <div id="Calpopup" class="modal">
-                
-            </div>
-            
+       <!-- Sticky button calendar -->
+<button class="sticky-cal-button" id="myStickyButton" onclick="openCal()">Calendar</button>
 
+<!-- Calendar popup -->
+<div id="Calpopup" class="modal">
+    <!-- Your calendar content goes here -->
+    <h2>Calendar Popup</h2>
+    <!-- Add your calendar content or iframe here -->
+    <iframe src="{{ url_for('calendar') }}" width="600" height="400" frameborder="0"></iframe>
+    <button onclick="closeCal()">Close</button>
+</div>
+
+<!-- Rest of your header and content -->
+
+
+            
+             
 
 
         
@@ -543,7 +576,25 @@
 
 
 
-
+        <script>
+            window.onscroll = function() {scrollFunction()};
+        
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("myStickyButton").style.display = "block";
+                } else {
+                    document.getElementById("myStickyButton").style.display = "block";
+                }
+            }
+        
+            function openCal() {
+                document.getElementById("Calpopup").style.display = "block";
+            }
+        
+            function closeCal() {
+                document.getElementById("Calpopup").style.display = "none";
+            }
+        </script>
 
 
 

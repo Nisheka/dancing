@@ -20,7 +20,7 @@
   body {
     place-items: center;
     font-family: var(--font-family);
-    background:linear-gradient(to right, #9796f0, #fbc7d4);
+   
     overflow: hidden;
   }
   .contianer {
@@ -293,109 +293,7 @@
     .month-list>div{
   
       margin: 5px 0px;
-    }
-<<<<<<< HEAD
-  }
+    
 
-  /********** Notice Bord and Upcoming Events CSS Starts **********/  
-.notice-board-sect {
-  background: #fff;
-  float: left;
-  margin: 0px auto;
-  display: table;
-  width: 98%;
-  padding: 15px 10px 20px 10px;
-}
-.notice-board-sect h2 {
-  font-size: 20px;
-  text-align: left;
-  padding: 10px 10px 10px 20px;
-  width: 100%;
-  float: left;
-  color: #787eff;
-}
-.notice-board {
-  width: 100%;
-  float: left;
-  border:3px solid #787eff;
-  margin-top: 10px;
-  border-radius: 10px;
-}
-.notice-board ul {
-  list-style:none;
-  width: 100%;
-  float:left;
-  padding:0px 10px 0px 5px;
-}
-.notice-board ul li {
-  width: 100%;
-  float:left;
-  font-size: 16px;
-  margin-bottom:20px;
-}
-.notice-board img {
-  margin-right: 5px;
-  margin-left: 5px;
-  width:35px;
-}
-.event-list {
-  width: 100%;
-  float: left;
-  padding:0px;
-}
-.event-list li {
-  width: 100%;
-  float: left;
-  box-shadow: 0px 0px 2px 0px #ffffff1f;
-  margin-bottom: 20px;
-  list-style: none;
-  padding: 10px 6px 10px 5px;
-  border: 1px solid #dddddd;
-  border-radius: 10px;
-}
-.event-date {
-  float: left;
-  width:85px;
-  text-align: center;
-  border:2px solid #787eff;
-  padding-top: 5px;
-  border-radius: 10px;
-}
-.event-date h3 {
-  font-size: 18px;
-  padding-top: 0px;
-}
-.event-date p {
-  font-size: 14px;
-  background: #787eff;
-  color: #fff;
-  padding: 5px;
-  margin-top: 5px;
-}
-.event-content {
-  float: left;
-  width: calc(100% - 90px);
-  padding: 0px 0px 0px 10px;
-}
-.event-content h5 {
-  font-size:18px;
-  margin-bottom: 6px;
-  color: #424242;
-  font-weight: 500;
-}
-.event-content a {
-  color: #787eff;
-  text-decoration: none;
-  font-weight: bold;
-  margin-right: 50px;
-}
-.event-content p {
-  font-size: 16px;
-  border-top: 1px solid #e3e3e3;
-  margin-top: 8px;
-  padding-top: 9px;
-}
-/********** Notice Bord and Upcoming Events CSS Ends **********/
-=======
-  }
->>>>>>> bb209fe92f22746f3f5c573ed24b752ee8f9d735
+
+      

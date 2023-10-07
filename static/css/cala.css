@@ -1,0 +1,87 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+h1 {
+    color: #007bff; /* Blue */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Link styles */
+a {
+    color: #007bff; /* Blue */
+    text-decoration: none;
+}
+
+/* Navigation bar styles */
+.navbar {
+    background-color: #333; /* Dark gray */
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Calendar cells styling */
+.fc-content {
+    background-color: #f0f0f0; /* Light gray */
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+/* Event titles styling */
+.fc-title {
+    color: #333; /* Dark gray */
+    font-weight: bold;
+}
+
+/* Logged-in user specific styling */
+{% if 'id' in session %}
+body {
+    background-color: #f8f8f8; /* Very light gray */
+}
+
+/* Event manager dashboard styles */
+#calendar {
+    margin: 20px auto;
+    width: 80%;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sign out button */
+#sign-out-btn {
+    display: block;
+    margin: 10px auto;
+    background-color: #007bff; /* Blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* ... Add more custom styles for logged-in users ... */
+
+{% endif %}

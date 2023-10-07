@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Style Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <h1>Dance Style Recommendation</h1>
+    <form action="/recommend" method="POST">
+        <!-- Create a questionnaire form with input fields -->
+        <label for="age">Age:</label>
+        <input type="number" name="age" required><br>
+    
+
+        <label for="experience">Previous Dance Experience (if any):</label>
+        <input type="text" name="experience" required><br>
+
+        <label for="inspiration">What inspired you to start dancing?</label>
+        <input type="text" name="inspiration" required><br>
+
+        <label for="goals">What are your dance goals?</label>
+        <input type="text" name="goals" required><br>
+
+        <label for="styles">Do you have any specific dance styles you're interested in?</label>
+        <input type="text" name="styles" required><br>
+
+        <label for="explore">Are there any dance styles you'd like to try or explore?</label>
+        <input type="text" name="explore" required><br>
+
+        <label for="limitations">Are there any physical limitations or health considerations we should be aware of?</label>
+        <input type="text" name="limitations" required><br>
+
+        <label for="interest">Are you interested in performing, competing, or dancing just for recreation?</label>
+        <input type="text" name="interest" required><br>
+
+        <label for="artist">Do you have a favorite dance artist, choreographer, or dance performance that inspires you?</label>
+        <input type="text" name="artist" required><br>
+
+        <label for="flexibility">How would you describe your current level of flexibility and coordination?</label>
+        <input type="text" name="flexibility" required><br>
+        
+        <label for="solo_partner_group">Solo/Partner/Group:</label>
+        <select name="solo_partner_group" required>
+          <option value="Solo">Solo</option>
+          <option value="Partner">Partner</option>
+          <option value="Group">Group</option>
+        </select><br>
+        
+        <label for="music_genre">Are there any specific songs or music genres you enjoy dancing to?</label>
+        <input type="text" name="music_genre" required><br>
+
+        
+        <button type="submit">Get Recommendation</button>
+        <button class="btnok" onclick="confirmRecommendation()" >Cancel</button>
+
+    </form>
+
+    {% if recommended_style %}
+    <h2>Your Recommended Dance Style:</h2>
+    <p>{{ recommended_style }}</p>
+    {% endif %}
+    
+    <!-- Add "OK" and "Cancel" buttons -->
+    
+
+   
+    
+    <script>
+    // JavaScript function to close the popup and redirect to the home page
+    function confirmRecommendation() {
+        // Redirect to the home page
+        window.location.href = "/"; // Change the URL to the home page as needed
+    }
+    
+   
+    </script>
+    
+</body>
+</html>
