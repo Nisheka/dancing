@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Progress Report</title>
+</head>
+<body>
+    <h1>User Progress Report</h1>
+
+    <table>
+        <tr>
+            <th>Module Title</th>
+            <th>Subtopic Title</th>
+            <th>Completed</th>
+        </tr>
+        {% for item in report_data %}
+            <tr>
+                <td>{{ item.module_title }}</td>
+                <td>{{ item.subtopic_title }}</td>
+                <td>{{ 'Yes' if item.completed else 'No' }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

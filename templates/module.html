@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barth.css') }}">
+</head>
+<body>
+    <h1>Practicle subtopics</h1>
+    <ul>
+        {% set main_number = 1 %}
+        {% for subtopic in subtopics %}
+            <li>
+                <a href="/videos/{{ subtopic.id }}">{{ main_number }}.{{ loop.index }} {{ subtopic.title }}</a>
+                {% if user_id %}
+                    {% if subtopic.completed %}
+                        (Completed)
+                    {% else %}
+                        <a href="/mark_complete/{{ subtopic.id }}">Mark as Completed</a>
+                    {% endif %}
+                {% endif %}
+            </li>
+            {% if loop.index == loop.length %}
+                {% set main_number = main_number + 1 %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <!-- Add a link or button to generate the report -->
+ 
+    <a href="/generate_report" target="_blank" class="neon-button">Download PDF Report</a>
+</body>
+</html>

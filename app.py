@@ -1,8 +1,12 @@
 #app.py
-from flask import Flask,jsonify, request, session, redirect, url_for, render_template, flash
+from flask import Flask,jsonify, request, session, redirect, url_for, render_template, flash,Response, send_file
 from datetime import datetime
 import psycopg2 #pip install psycopg2 
 import csv
+import json
+from io import BytesIO
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
 
 
@@ -75,6 +79,10 @@ def tutorial():
 @app.route('/coustume')
 def coustume():
     return render_template('coustume.html') 
+    
+@app.route('/barth')
+def barth():
+    return render_template('barth.html')
 
 # Flask view function for 'search' endpoint
 @app.route('/search')
@@ -228,6 +236,115 @@ def degrees_page():
     return render_template('degrees.html', universities=universities)
 
 
+@app.route('/modules')
+def modules():
+    # Fetch modules from the database
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, title FROM modules")
+    modules = cursor.fetchall()
+    cursor.close()
+
+    # Unpack the tuple and create a list of dictionaries
+    modules_data = []
+    for module in modules:
+        module_id, module_title = module  # Unpack the tuple
+        modules_data.append({'id': module_id, 'title': module_title})
+
+    return render_template('modules.html', modules=modules_data)
+
+
+@app.route('/module/<int:module_id>')
+def module(module_id):
+    # Fetch subtopics from the database for the selected module
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, title FROM subtopics WHERE module_id = %s", (module_id,))
+    subtopics = cursor.fetchall()
+    cursor.close()
+
+    # Create a list of dictionaries from the fetched subtopics
+    subtopics_data = []
+    for subtopic in subtopics:
+        subtopic_id, subtopic_title = subtopic  # Unpack the tuple
+        subtopics_data.append({'id': subtopic_id, 'title': subtopic_title})
+
+    return render_template('module.html', subtopics=subtopics_data)
+
+
+
+
+
+
+# Add routes to handle user progress and video content (replace with your actual routes and templates)
+@app.route('/mark_complete/<int:subtopic_id>')
+def mark_complete(subtopic_id):
+    # Mark subtopic as completed for the current user
+    if 'id' in session:
+        user_id = session['id']
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO users_progress (user_id, subtopic_id, completed) VALUES (%s, %s, %s)",
+                       (user_id, subtopic_id, True))
+        conn.commit()
+        cursor.close()
+    return redirect(request.referrer)
+
+@app.route('/videos/<int:subtopic_id>')
+def videos(subtopic_id):
+    # Fetch videos from the database for the selected subtopic
+    cursor = conn.cursor()
+    cursor.execute("SELECT title, video_url FROM videos WHERE subtopic_id = %s", (subtopic_id,))
+    videos = cursor.fetchall()
+    cursor.close()
+
+    # Create a list of dictionaries from the fetched videos
+    videos_data = []
+    for video in videos:
+        video_title, video_url = video  # Unpack the tuple
+        videos_data.append({'title': video_title, 'video_url': video_url})
+
+    return render_template('videos.html', videos=videos_data)
+
+
+
+
+# ... (other imports and code)
+
+@app.route('/generate_report', methods=['GET'])
+def generate_report():
+    # Query the database to get user progress information
+    cursor = conn.cursor()
+    cursor.execute(
+        """
+        SELECT m.title AS module_title, s.title AS subtopic_title, up.completed
+        FROM users_progress up
+        INNER JOIN subtopics s ON up.subtopic_id = s.id
+        INNER JOIN modules m ON s.module_id = m.id
+        """
+    )
+
+    # Fetch the results
+    user_progress = cursor.fetchall()
+    cursor.close()
+
+    # Generate a report in PDF format
+    buffer = BytesIO()
+    pdf = canvas.Canvas(buffer, pagesize=letter)
+
+    pdf.drawString(100, 750, "User Progress Report")
+    pdf.drawString(100, 730, "Module Title - Subtopic Title - Completed")
+
+    y = 710
+    for row in user_progress:
+        module_title, subtopic_title, completed = row
+        pdf.drawString(100, y, f"{module_title} - {subtopic_title} - {'Completed' if completed else 'Not Completed'}")
+        y -= 20
+
+    pdf.save()
+    buffer.seek(0)
+
+    # Offer the PDF for download
+    return send_file(buffer, as_attachment=True, download_name='user_progress_report.pdf', mimetype='application/pdf')
+
+# ... (other routes and code)
 
 @app.route('/account', methods=['GET', 'POST'])
 def account():

@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
+    
     <h1>Dance Style Recommendation</h1>
-    <form action="/recommend" method="POST">
+    <form action="/dance-recommendation" method="POST">
         <!-- Create a questionnaire form with input fields -->
         <label for="age">Age:</label>
         <input type="number" name="age" required><br>

@@ -1,13 +1,15 @@
 :root{
-  --blue:cadetblue;
+ 
+    
+  --blue:#161748;
   --pink:#e84393;
-  --pinky:#e798be;
+  --pinky:#ffaaab ;
 }
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: "Balsamiq Sans", cursive;
     outline: none;
     border: none;
     text-decoration:none;
@@ -29,7 +31,7 @@ header{
     top: 0;
     left: 0;
     right: 0;
-    background: #fff;
+    background: #fff5d7;
     padding: 2rem 9%;
     display: flex;
     align-items: center;
@@ -39,7 +41,7 @@ header{
 }
 header .logo{
     font-size: 3rem;
-    color: cadetblue;
+    color: #161748;
     font-weight: bolder;
 }
 header .logo span{
@@ -59,9 +61,9 @@ header .logo span{
   }
   .menu-bar ul li a {
     font-size: 20px;
-    color: #666;
+    color: #161748;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.6s;
   }
   .menu-bar ul li a:hover {
     color: var(--blue);
@@ -80,7 +82,7 @@ header .logo span{
     position: absolute;
     left: 0;
     top: 100%;
-    background-color: var(--pinky);
+    background-color: white;
   }
   .menu-bar ul li:hover .dropdown-menu ul {
     display: block;
@@ -91,18 +93,40 @@ header .logo span{
     width: 208px;
     padding: 15px;
   }
+
   .dropdown-menu-1 {
     display: none;
   }
-
- 
   .dropdown-menu ul li:hover .dropdown-menu-1 {
     display: block;
     position: absolute;
     left: 216px;
     top: 0;
-    background-color: var(--pinky);
+    background-color:white;
   }
+  .dropdown-menu-2 {
+    display: none;
+  }
+  .dropdown-menu ul li:hover .dropdown-menu-2 {
+    display: block;
+    position: absolute;
+    left: 218px;
+    top: 0;
+    background-color:white;
+  }
+
+  .menu-bar ul li:hover .dropdown-menu-2 ul {
+    display: block;
+    margin: 14px;
+    
+  }
+  .menu-bar ul li:hover .dropdown-menu-2 ul li {
+    width: 208px;
+    padding: 17px;
+  }
+  
+
+  
 header .icons a{
     font-size: 2.5rem;
     color: #333;
@@ -169,7 +193,7 @@ section{
     position: relative;
     font-size: 35px;
     letter-spacing: 5px;
-    color: #666;
+    color: var(--blue);
 }
 
 
@@ -190,7 +214,7 @@ section{
 }
 
 .multitest{
-    color: #e84393;
+    color: var(--blue);
     text-transform: capitalize;
 }
 
@@ -198,31 +222,39 @@ section{
     display: block;
     width: 90%;
     font-size: 1.5em;
-    color: #858484;
+    color: #666;
 }
 
-.home .btns{
+.home 
+{
     width: 100%;
     position: relative;
     left: 100px;
 }
 .home button{
+
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    color: #fff;
+    padding: .9rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+    background-color: #333;
     outline: none;
     border: none;
     cursor: pointer;
     font-size: 25px;
     font-weight: 400;
-    color: #eee;
-    background-color: #333;
     padding: 8px 14px;
     margin: 40px 5px;
     letter-spacing: 2px;
     text-transform: capitalize;
-    box-shadow: 0 15px 10px rgba(0,0,0,0.4) ;
+  
 }
 
-button:hover{
-    color: var(--blue);
+.home button:hover{
+    background: #161748;
 }
 
 .heading{
@@ -307,7 +339,7 @@ button:hover{
 }
 
 .icons-container{
-    background: #bbdfd6;
+    background: #fff5d7;;
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -542,7 +574,7 @@ button:hover{
     resize: none;
 }
 .footer{
-    background:  rgba(95, 158, 160, 0.229);
+    background:   #feb300;
 }
 .footer .box-container{
     display: flex;
@@ -854,16 +886,18 @@ button:hover{
 
     /* Add styling for the sticky calendar button */
     .sticky-cal-button {
+        border-radius: 5rem;
+        padding: .9rem 3.5rem;
+
+        font-size: 1.7rem;
         display: block;
         position: fixed;
         bottom: 20px;
-        right: 20px;
+        right: 100px;
         z-index: 1000;
-        background-color: #007bff;
+        background-color: #333;
         color: white;
-        padding: 10px 20px;
         border: none;
-        border-radius: 5px;
         cursor: pointer;
     }
 
@@ -875,16 +909,8 @@ button:hover{
         }
     }
 
-    button {
-      padding: 10px 20px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
     
     button:hover {
-      background-color: #2980b9;
+      background-color: var(--blue);
     }
   

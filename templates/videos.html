@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Videos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barth.css') }}">
+</head>
+<body>
+   
+    <ul>
+        {% for video in videos %}
+            <li>
+                <h2>{{ video.title }}</h2>
+                <video width="740" height="460" controls>
+                    <source src="{{ video.video_url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+

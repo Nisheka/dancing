@@ -1,7 +1,20 @@
 :root{
-    --blue:cadetblue;
+ 
+    
+    --blue:#161748;
     --pink:#e84393;
-    --pinky:#e798be;
+    --pinky:#ffaaab ;
+  }
+  *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+      font-family: "Balsamiq Sans", cursive;
+      outline: none;
+      border: none;
+      text-decoration:none;
+      text-transform: capitalize;
+      transition: .2s linear;
   }
 
 body {
@@ -14,7 +27,7 @@ body {
     min-height: 100vh;
     margin: 0;
         animation: backgroundAnimation 10s infinite alternate;
-        background: linear-gradient(45deg, cadetblue, #e798be);
+        background: linear-gradient(45deg, #fff5d7,  #feb20091);
         background-size: 400% 400%;
 
 }
