@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Country Western Dance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+      
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
+    
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <aside class="container">
+      <input type="checkbox" id="menu__trigger">
+      <section class="menu">
+        <!--<label for="menu__trigger" class="entypo-cancel"></label>-->
+        <nav>
+            <a href="#Introduction">1. Introduction</a>
+            <a href="{{ url_for('ba') }}">2. Ballet dances</a>
+            <a href="{{ url_for('hp') }}">3. Hip Hop  dances</a>
+            <a href="{{ url_for('jaz') }}">4.Jazz  dances</a>
+            <a href="{{ url_for('tap') }}">5. Tap Dance</a>
+            <a href="{{ url_for('cou') }}">6. Country Western Dance</a>
+            <a href="{{ url_for('bal') }}">7. Ballroom Dance</a>
+            <a href="{{ url_for('homee') }}">8. Home</a>
+          </nav>
+      </section>
+      
+      <section class="content">
+        <label for="menu__trigger" class="entypo-menu"></label>
+       
+          
+      </section>
+  
+    </aside>
+<main id="documentation">
+    <div class="blog" id="Blog">
+        <h2>Country Western Dance</h2>
+        <div class="blog_box">
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba2.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"></p>History
+                    <p>
+                        Country western dance, a vibrant celebration of Western culture, has roots intertwined with the rich traditions of country music. Emerging as a social and partner dance phenomenon, its history is steeped in the spirited gatherings of communities across the American West. From the honky-tonk dance floors to modern country festivals, these dances have evolved, embodying the enduring connection between music, movement, and the communal spirit of the West.</p>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="blog_card_2">
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i>    Costume:</p>
+                    <p>
+                        Country western dance costumes echo the relaxed and sociable atmosphere of Western culture. Dancers often adorn themselves in comfortable yet stylish attire, reflecting the casual charm of the dance scene. Cowboy boots, denim, and hats are common elements, enhancing the sense of camaraderie and shared enthusiasm for the country music that forms the heartbeat of these lively partner dances.</p>
+                </div>
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba1.png') }}">
+                </div>
+            </div>
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i></p>
+                    <p>
+                        <p>   Music Accompaniment:</p>
+                        <p>
+                            At the core of country western dance is its symbiotic relationship with country music. The twang of guitars, the rhythm of drums, and the heartfelt lyrics provide the soundtrack for dances like the two-step and cowboy cha-cha. The connection between dancers is heightened by the shared experience of moving to the soulful tunes of country, creating a harmonious blend of movement, melody, and the timeless allure of Western camaraderie.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ballet dance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+      
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
+    
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <aside class="container">
+      <input type="checkbox" id="menu__trigger">
+      <section class="menu">
+        <!--<label for="menu__trigger" class="entypo-cancel"></label>-->
+        <nav>
+            <a href="#Introduction">1. Introduction</a>
+            <a href="{{ url_for('ba') }}">2. Ballet dances</a>
+            <a href="{{ url_for('hp') }}">3. Hip Hop  dances</a>
+            <a href="{{ url_for('jaz') }}">4.Jazz  dances</a>
+            <a href="{{ url_for('tap') }}">5. Tap Dance</a>
+            <a href="{{ url_for('cou') }}">6. Country Western Dance</a>
+            <a href="{{ url_for('bal') }}">7. Ballroom Dance</a>
+            <a href="{{ url_for('homee') }}">8. Home</a>
+          </nav>
+      </section>
+      
+      <section class="content">
+        <label for="menu__trigger" class="entypo-menu"></label>
+       
+          
+      </section>
+  
+    </aside>
+<main id="documentation">
+    <div class="blog" id="Blog">
+        <h2>Ballet Dance</h2>
+        <div class="blog_box">
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba2.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"></p>History
+                    <p>
+                        Ballet's rich history unfolds like a dance through time. Originating in the Italian Renaissance courts, it blossomed into an art form with roots in French and Russian traditions. From courtly entertainment to a theatrical spectacle, ballet has weathered changes in style and narrative, mirroring societal shifts. Pioneering choreographers like Marius Petipa and George Balanchine left indelible marks, shaping ballet into a dynamic, evolving expression of grace and storytelling. Through centuries, ballet has bridged cultural divides, becoming a global dance language that preserves tradition while embracing innovation.
+                    </p>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="blog_card_2">
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i>    Costume:</p>
+                    <p>
+                     
+                       
+Ballet costumes, a vital element in the visual poetry of dance, are a symphony of design and functionality. Evolving from courtly attire to intricate tutus and leotards, costumes not only enhance the narrative but also showcase the dancer's skill and form. From the ethereal to the dramatic, costume designs contribute to the audience's emotional connection with the performance. Intricate detailing, fabrics that catch the light, and the careful balance of tradition and innovation make ballet costumes a mesmerizing aspect of the art, adding layers of visual splendor to the dancers' movements.
+                    </p>
+                </div>
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba1.png') }}">
+                </div>
+            </div>
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i></p>
+                    <p>
+                        <p>   Music Accompaniment:</p>
+                        <p>
+                            
+                            The soul of ballet lies in its music accompaniment, a harmonious partnership that elevates the dance to a transcendent experience. From the classical compositions of Tchaikovsky to contemporary scores, ballet music complements the choreography, creating an emotional landscape for the dancers to traverse. The marriage of music and movement is evident in every plié and pirouette, with composers crafting scores that echo the narrative's nuances. The symphonic swell of an orchestra or the minimalist notes of a piano intertwine with the dance, guiding the audience through a sensory journey that transcends time and resonates with the heart of ballet.
+                        </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

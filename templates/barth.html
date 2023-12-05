@@ -1,36 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
-    <title>Barathanatyam</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/barth.css') }}">
+  <meta charset="UTF-8">
+  <title>Bharatanatyam</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/barth.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"/>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"/>
 </head>
 <body>
-	<div class="content">
-		<h3><b>Syllabus for Bhatkhande Bharatanatyam Examination</b></h3>
-		
-		
-	</div>
-	<div class="button-container">
-        <a href="/modules" class="neon-button">PRATHMA</a>
-        <a href="#" class="neon-button">MADHYAMA</a>
-        <a href="#" class="neon-button">VISHARAD PART I</a>
-        <a href="#" class="neon-button">VISHARAD PART II</a>
-    </div>
-    <section >
-		<div class="row">
-			<div class="video-container">
-				<img src="{{ url_for('static', filename='images/bbe.jpg') }}" alt="">
-				
-			</div> 
-			<div class="content">
-				<h3>syllabus of Barathanatyam</h3>
-				<p>Bharatanatyam syllabus encompasses a rich tapestry of Indian classical dance. Students journey through the art's history, from mythological origins to regional nuances. They master intricate mudras (hand gestures), learn ancient and modern compositions, and delve into the cultural context of this expressive form. A harmonious blend of theory and practice, Bharatanatyam syllabus unfolds a profound dance narrative.</p>
-				
+<!-- partial:index.partial.html -->
+<div class="layout-wrapper">
+	<nav class="cover-wrapper">
+		<header class="page-header">
+			<h1 class="headline">syllabus of Bharatanatyam</h1>
+		</header>
+		<div class="page-sub">
+			<div class="subhead-container">
+				<h2 class="subhead">Bharatanatyam's Resilient Revival: A Symphony of Tradition and Triumph</h2>
+			</div>
+			<div class="article-meta">
+				<svg id="author-avatar" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+					<title id="avatarTitle">Author Avatar</title>
+					<desc id="avatarDesc">A cartoon avatar of a smiling purple square on a blue background.</desc>
+					<mask id="mask__beam" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
+						<rect width="36" height="36" rx="72" fill="white"></rect>
+					</mask>
+					<g mask="url(#mask__beam)">
+						<rect width="36" height="36" fill="#0ebeff"></rect>
+						<rect x="0" y="0" width="36" height="36" transform="translate(6 6) rotate(192 18 18) scale(1)" fill="#754cac" rx="6"></rect>
+						<g transform="translate(0 2) rotate(-2 18 18)">
+							<path d="M13,19 a1,0.75 0 0,0 10,0" fill="white"></path>
+							<rect x="12" y="14" width="1.5" height="2" rx="1" stroke="none" fill="white"></rect>
+							<rect x="22" y="14" width="1.5" height="2" rx="1" stroke="none" fill="white"></rect>
+						</g>
+					</g>
+				</svg>
+				<p class="byline"></p>
+				<p class="dateline"></p>
 			</div>
 		</div>
+	</nav>
+	<div class="section-1">
+		<p class="article-tags">
+			<span id="culture-tag" class="tag">PRATHMA</span>
+			<span id="games-tag" class="tag">MADHYAMA</span>
+			<span id="featured-tag" class="tag featured glow">VISHARAD PART I</span>
+			<span id="featur-tag" class="tag featured glow">VISHARAD PART II</span>
+		</p>
+		<p class="first-paragraph">Bharatanatyam syllabus encompasses a rich tapestry of Indian classical dance. Students journey through the art's history, from mythological origins to regional nuances. They master intricate mudras (hand gestures), learn ancient and modern compositions, and delve into the cultural context of this expressive form. A harmonious blend of theory and practice, Bharatanatyam syllabus unfolds a profound dance narrative. </p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<aside class="full-width-span">
+		<p></p>
+		<p></p>
+		<p></p>
+	</aside>
+	<div>
+</div>
+<!-- 
+    partial -->
+    <script>
+        // Get the span elements by their IDs
+        var cultureTag = document.getElementById('culture-tag');
+        var gamesTag = document.getElementById('games-tag');
+        var featuredTag = document.getElementById('featured-tag');
+		var featurTag = document.getElementById('featur-tag');
+    
+        // Add click event listeners to the span elements
+        cultureTag.addEventListener('click', function() {
+            window.location.href = "{{ url_for('modules') }}";
+        });
+    
+        gamesTag.addEventListener('click', function() {
+            window.location.href = "{{ url_for('modules') }}";
+        });
+    
+        featuredTag.addEventListener('click', function() {
+            window.location.href = "{{ url_for('modules') }}";
+        });
 
-	</section>
-
-   
+		featurTag.addEventListener('click', function() {
+            window.location.href = "{{ url_for('modules') }}";
+        });
+    </script>
+    
 </body>
 </html>

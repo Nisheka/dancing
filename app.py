@@ -7,7 +7,8 @@ import json
 from io import BytesIO
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-
+from geopy.distance import geodesic
+from chat import get_response
 
 
 app = Flask(__name__)
@@ -68,6 +69,37 @@ def fol():
 def dar():
     return render_template('dar.html')
 
+@app.route('/western')
+def western():
+    return render_template('western.html')    
+
+@app.route('/ba')
+def ba():
+    return render_template('ba.html')  
+
+
+@app.route('/hp')
+def hp():
+    return render_template('hp.html')          
+
+
+@app.route('/jaz')
+def jaz():
+    return render_template('jaz.html')  
+
+
+@app.route('/tap')
+def tap():
+    return render_template('tap.html') 
+
+@app.route('/cou')
+def cou():
+    return render_template('cou.html')
+
+@app.route('/bal')
+def bal():
+    return render_template('bal.html')    
+
 @app.route('/uni')
 def uni():
     return render_template('uni.html')    
@@ -75,20 +107,24 @@ def uni():
 @app.route('/tutorial')
 def tutorial():
     return render_template('tutorial.html')    
+    
+@app.route('/barath')
+def barath():
+    return render_template('barath.html') 
 
-@app.route('/coustume')
-def coustume():
-    return render_template('coustume.html') 
+@app.route('/exam')
+def exam():
+    return render_template('exam.html')  
+
+@app.route('/rule')
+def rule():
+    return render_template('rule.html')   
     
 @app.route('/barth')
 def barth():
     return render_template('barth.html')
 
-# Flask view function for 'search' endpoint
-@app.route('/search')
-def search():
-    # Add your logic for the search functionality here
-    return render_template('search.html')
+
 
  # Flask view function for 'search' endpoint
 @app.route('/rating')
@@ -99,22 +135,33 @@ def rating():
 
 @app.route('/calendar')
 def calendar():
-    return render_template('calendar.html')
+    # Example: Fetching events from a database
+    # Replace this with your actual database fetching logic
+    cursor = conn.cursor()
+    cursor.execute("SELECT title, date, time, location FROM events ORDER BY date DESC")
+    events = cursor.fetchall()
+    cursor.close()
+
+    return render_template('calendar.html', events=events)
+
 
 @app.route('/signup', methods=['POST'])
 def signup():
     # Get form data
     name = request.form['name']
     email = request.form['email']
+    role = request.form['role']
     password = request.form['password']
     
     # Insert data into database
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO users (name, email, password) VALUES (%s, %s, %s)", (name, email, password))
+    cursor.execute("INSERT INTO users (name, email, password,rolr) VALUES (%s, %s, %s)", (name, email, password,role))
     conn.commit()
     cursor.close()
     
     return redirect(url_for('home'))
+
+
 
 
 @app.route('/signin', methods=['GET', 'POST'])
@@ -131,65 +178,169 @@ def signin():
         if user:
             session['id'] = user[0]  # Store user ID in session
             role = user[4]  # Get the user role from the database
-            session['name'] = user[1] 
-            
+            session['name'] = user[1]
 
-            if role == 'event_manager':
-
-                return redirect(url_for('event'))  # Redirect to event manager dashboard
-
-            elif role == 'admin':
-                # Redirect to admin dashboard
-                # Add admin dashboard route here
-                pass
-            elif role == 'artist':
-                # Redirect to artist dashboard
-                # Add artist dashboard route here
-                pass
-            else:
-                return redirect(url_for('dashboard'))  # Redirect to user dashboard
+            # Redirect to the stored target page after login
+            return redirect(url_for('get_target_page'))
         else:
             return redirect(url_for('sign', error='Invalid email or password'))
 
     return render_template('sign.html')
 
-@app.route('/signout')
-def signout():
-    session.pop('id', None)  # Remove user ID from session
-    return redirect(url_for('event'))
+# Your existing routes...
 
+# Route to get the stored target page and redirect after login
+@app.route('/get_target_page')
+def get_target_page():
+    target_page = session.pop('target_page', 'dashboard')  # Default to dashboard if no target_page is stored
+    return redirect(url_for(target_page))
 
+@app.route('/store_target_page', methods=['POST'])
+def store_target_page():
+    data = request.get_json()
+    target_page = data.get('target_page')
+    session['target_page'] = target_page
+    return jsonify(success=True)
 
 
 @app.route('/dashboard')
 def dashboard():
     # Render dashboard template
     return render_template('dashboard.html')
+
+
+
+@app.route('/myler')
+def myler():
+    user_id = session.get('id')
+
+    cursor = conn.cursor()
+
+    # Execute the query
+    cursor.execute("SELECT subtopic_id, completed FROM users_progress WHERE user_id = %s", (user_id,))
+    raw_progress_data = cursor.fetchall()
+
+    # Process the data
+    progress_data = []
+    for record in raw_progress_data:
+        subtopic_id, completed = record
+        progress_record = {
+            "subtopic_id": subtopic_id,
+            "status": "Completed" if completed else "Not Completed"
+        }
+        progress_data.append(progress_record)
+
+    cursor.close()
+    # Close the connection if you're done with it
+
+    return render_template('myler.html', progress_data=progress_data)
+
+# Inside app.py
+@app.route('/mark_complete/<int:subtopic_id>', methods=['GET'])
+def mark_complete(subtopic_id):
+ 
+    # Mark subtopic as completed for the current user
+    if 'id' in session:
+        user_id = session.get['id']
+        print("User ID:", user_id)  # Debugging
+        cursor = conn.cursor()
+        try:
+            cursor.execute("INSERT INTO users_progress (user_id, subtopic_id, completed) VALUES (%s, %s, %s)",
+                           (user_id, subtopic_id, True))
+            conn.commit()
+            print("Insert successful")  # Debugging
+        except Exception as e:
+            print("Error inserting into users_progress:", e)  # Debugging
+            conn.rollback()  # Rollback in case of an error
+        finally:
+            cursor.close()
+    return redirect(request.referrer)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        with conn.cursor() as cursor:
+            try:
+                # Modified SQL query to check the role
+                cursor.execute("SELECT * FROM users WHERE email = %s AND password = %s AND role = 'event_manager'", (email, password))
+                user = cursor.fetchone()
+
+                if user:
+                    # User is an event manager, proceed to the event manager dashboard
+                    return redirect(url_for('event'))
+                else:
+                    # User is not an event manager or login details are incorrect
+                    return render_template('login.html', error='Invalid email/password or not authorized as an event manager.')
+
+            except psycopg2.Error as e:
+                conn.rollback()  # Rollback the transaction on error
+                print("Database error: ", e)  # Log the database error for debugging
+                return render_template('login.html', error='A database error occurred. Please try again.')
     
+    # If it's a GET request, just render the sign-in template
+    return render_template('login.html')
+
+
+@app.route('/gets_target_page')
+def gets_target_page():
+    targets_page = session.pop('targets_page', 'calendar')  # Default to dashboard if no target_page is stored
+    return redirect(url_for(targets_page))
+
+
+@app.route('/stores_target_page', methods=['POST'])
+def stores_target_page():
+    data = request.get_json()
+    targets_page = data.get('targets_page')
+    session['targets_page'] = targets_page
+    return jsonify(success=True)
+
+
+@app.route('/signout')
+def signout():
+    session.pop('id', None)  # Remove user ID from session
+    return redirect(url_for('calender'))
+
+
+
 @app.route('/event', methods=['GET', 'POST'])
 def event():
-    if 'id' not in session:
-        return redirect(url_for('signin'))
-
+    
     if request.method == 'POST':
-        # Get event details from the form
-        event_date = request.form['event_date']
-        start_time = request.form['start_time']
-        end_time = request.form['end_time']
-        break_time = request.form['break_time']
-        sessions = request.form['sessions']
-        lead = request.form['lead']
+        try:
+            event_title = request.form['title']
+            event_date = request.form['date']
+            event_description = request.form['description']
+            event_time = request.form['time']  # Retrieve time
+            event_location = request.form['location']  # Retrieve location
+        
+            
 
-        # Insert event details into the events table
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO events (event_date, start_time, end_time, break_time, sessions, lead) VALUES (%s, %s, %s, %s, %s, %s)",
-                       (event_date, start_time, end_time, break_time, sessions, lead))
-        conn.commit()
-        cursor.close()
-
-        return redirect(url_for('calendar'))
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO events (title, date, description, time , location) VALUES (%s, %s, %s, %s, %s)", 
+                           (event_title, event_date,event_description,event_time, event_location,))
+            conn.commit()
+            cursor.close()
+            return redirect(url_for('calendar', message='Event created successfully!'))
+        except Exception as e:
+            conn.rollback()  # Rollback the transaction on error
+            cursor.close()
+            print("An error occurred: ", e)
+            return redirect(url_for('event', error='An error occurred while creating the event.'))
 
     return render_template('event.html')
+
+
+@app.route('/events')
+def show_events():
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM events WHERE date = %s ", (start.date()))
+    events = cursor.fetchall()
+    cursor.close()
+    return render_template('home.html', events=events)
 
 
 
@@ -197,10 +348,10 @@ def event():
 def get_events():
     # Fetch event data from the database and return it as JSON
     start = datetime.fromisoformat(request.args.get('start'))
-    end = datetime.fromisoformat(request.args.get('end'))
+
 
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM events WHERE event_date BETWEEN %s AND %s", (start.date(), end.date()))
+    cursor.execute("SELECT * FROM events WHERE date = %s ", (start.date()))
     events = cursor.fetchall()
     cursor.close()
 
@@ -238,113 +389,47 @@ def degrees_page():
 
 @app.route('/modules')
 def modules():
-    # Fetch modules from the database
+    # Fetch main modules from the database
+   
     cursor = conn.cursor()
-    cursor.execute("SELECT id, title FROM modules")
+    cursor.execute("SELECT * FROM modules")
     modules = cursor.fetchall()
     cursor.close()
 
-    # Unpack the tuple and create a list of dictionaries
-    modules_data = []
-    for module in modules:
-        module_id, module_title = module  # Unpack the tuple
-        modules_data.append({'id': module_id, 'title': module_title})
+    return render_template('modules.html', modules=modules)
 
-    return render_template('modules.html', modules=modules_data)
-
-
+# Update the '/module/<int:module_id>' route in your app.py file
 @app.route('/module/<int:module_id>')
 def module(module_id):
-    # Fetch subtopics from the database for the selected module
+    # Fetch subtopics and videos for the selected module
     cursor = conn.cursor()
-    cursor.execute("SELECT id, title FROM subtopics WHERE module_id = %s", (module_id,))
-    subtopics = cursor.fetchall()
+    cursor.execute("""
+        SELECT 
+            st.id, 
+            st.title AS subtopic_title, 
+            st.description, 
+            st.video_id, 
+            st.duration, 
+            v.title AS video_title
+        FROM subtopics st 
+        LEFT JOIN videos v ON st.video_id = v.video_id
+        WHERE st.module_id = %s
+    """, (module_id,))
+    data = cursor.fetchall()
+
+
+
+    # Fetch module title for the selected module
+    cursor.execute("SELECT id, title FROM modules WHERE id = %s", (module_id,))
+    module_title = cursor.fetchone()[0]
+
     cursor.close()
-
-    # Create a list of dictionaries from the fetched subtopics
-    subtopics_data = []
-    for subtopic in subtopics:
-        subtopic_id, subtopic_title = subtopic  # Unpack the tuple
-        subtopics_data.append({'id': subtopic_id, 'title': subtopic_title})
-
-    return render_template('module.html', subtopics=subtopics_data)
+    return render_template('module.html', data=data, module_title=module_title)
 
 
 
 
 
-
-# Add routes to handle user progress and video content (replace with your actual routes and templates)
-@app.route('/mark_complete/<int:subtopic_id>')
-def mark_complete(subtopic_id):
-    # Mark subtopic as completed for the current user
-    if 'id' in session:
-        user_id = session['id']
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO users_progress (user_id, subtopic_id, completed) VALUES (%s, %s, %s)",
-                       (user_id, subtopic_id, True))
-        conn.commit()
-        cursor.close()
-    return redirect(request.referrer)
-
-@app.route('/videos/<int:subtopic_id>')
-def videos(subtopic_id):
-    # Fetch videos from the database for the selected subtopic
-    cursor = conn.cursor()
-    cursor.execute("SELECT title, video_url FROM videos WHERE subtopic_id = %s", (subtopic_id,))
-    videos = cursor.fetchall()
-    cursor.close()
-
-    # Create a list of dictionaries from the fetched videos
-    videos_data = []
-    for video in videos:
-        video_title, video_url = video  # Unpack the tuple
-        videos_data.append({'title': video_title, 'video_url': video_url})
-
-    return render_template('videos.html', videos=videos_data)
-
-
-
-
-# ... (other imports and code)
-
-@app.route('/generate_report', methods=['GET'])
-def generate_report():
-    # Query the database to get user progress information
-    cursor = conn.cursor()
-    cursor.execute(
-        """
-        SELECT m.title AS module_title, s.title AS subtopic_title, up.completed
-        FROM users_progress up
-        INNER JOIN subtopics s ON up.subtopic_id = s.id
-        INNER JOIN modules m ON s.module_id = m.id
-        """
-    )
-
-    # Fetch the results
-    user_progress = cursor.fetchall()
-    cursor.close()
-
-    # Generate a report in PDF format
-    buffer = BytesIO()
-    pdf = canvas.Canvas(buffer, pagesize=letter)
-
-    pdf.drawString(100, 750, "User Progress Report")
-    pdf.drawString(100, 730, "Module Title - Subtopic Title - Completed")
-
-    y = 710
-    for row in user_progress:
-        module_title, subtopic_title, completed = row
-        pdf.drawString(100, y, f"{module_title} - {subtopic_title} - {'Completed' if completed else 'Not Completed'}")
-        y -= 20
-
-    pdf.save()
-    buffer.seek(0)
-
-    # Offer the PDF for download
-    return send_file(buffer, as_attachment=True, download_name='user_progress_report.pdf', mimetype='application/pdf')
-
-# ... (other routes and code)
 
 @app.route('/account', methods=['GET', 'POST'])
 def account():
@@ -462,6 +547,191 @@ def dance_recommendation():
         recommended_style = recommend_dance_style(user_input)
 
     return render_template('index.html', recommended_style=recommended_style)
+
+@app.route('/search')
+def search():
+    category = request.args.get('category')
+
+    cursor = conn.cursor()
+
+    if category:
+        cursor.execute("SELECT id,name,category, description, price, image FROM locations WHERE category = %s", (category,))
+    else:
+        cursor.execute("SELECT id,name,category, description, price, image FROM locations")
+
+    # Fetch results as tuples
+    locations_data = cursor.fetchall()
+    cursor.close()
+
+    # Convert each tuple to a dictionary
+    locations = []
+    for location_data in locations_data:
+        location_dict = {
+            'id': location_data[0],
+            'name': location_data[1],
+            'category': location_data[2],
+            'description': location_data[3],
+            'price': location_data[4],
+            'image': location_data[5]  # Add the 'image' field
+            # Add other fields as needed
+        }
+        locations.append(location_dict)
+
+    return render_template('search.html', locations=locations)
+def get_all_locations():
+    try:
+        # Establish a connection to the database
+        conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
+        cursor = conn.cursor()
+
+        cursor.execute('SELECT * FROM locations;')
+        locations = cursor.fetchall()
+        cursor.close()  # Close the cursor, but keep the connection open
+        return locations
+
+    except psycopg2.Error as e:
+        print("Error fetching locations from the database:", e)
+        return []
+
+    finally:
+        # Close the cursor (if it was opened) and connection
+        if 'cursor' in locals():
+            cursor.close()
+        conn.close()
+
+@app.route('/update_location', methods=['GET'])
+def update_location():
+    global current_latitude, current_longitude
+
+    # Receive latitude and longitude from the POST request's form data
+    latitude = request.form.get('latitude')
+    longitude = request.form.get('longitude')
+
+    # Store the received values in the global variables
+    current_latitude = latitude
+    current_longitude = longitude
+    current_location = (current_latitude, current_longitude)
+
+    # Calculate distances and format the result
+    nearest_locations_with_distance = []
+
+    # Retrieve all locations from the database
+    locations = get_all_locations()
+
+    for location in locations:
+        location_coords = (location[2], location[3])  # Assuming latitude is at index 2 and longitude at index 3
+        distance = geodesic(current_location, location_coords).kilometers
+
+        nearest_locations_with_distance.append({
+            'id': location[0],
+            'name': location[1],
+            'latitude': location[2],
+            'longitude': location[3],
+            'category': location[4],
+            'price': location[5],
+            'description': location[6],
+            'image': location[7],
+            'distance': distance
+        })
+
+    return render_template('filtered.html', locations=nearest_locations_with_distance)
+    
+@app.route('/coustume')
+def coustume():
+        try:
+    
+
+        # Create a cursor
+          cursor = conn.cursor()
+
+        # Execute SQL query to fetch all active products
+          cursor.execute("SELECT * FROM product WHERE active=True")
+
+        # Fetch all rows
+          products = cursor.fetchall()
+
+          return render_template('coustume.html', products=products)
+
+        except psycopg2.Error as e:
+          print("Error fetching products from the database:", e)
+
+        finally:
+        # Close the cursor (if it was opened) and connection
+         if 'cursor' in locals():
+            cursor.close()
+        conn.close()
+
+
+@app.route('/item')
+def item():
+    # Get the 'id' parameter from the request
+    product_id = request.args.get('id')
+
+    # Query the database to get the product with the specified id
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, name, price, rating,image,description FROM product WHERE id = %s", (product_id,))
+    product_data = cursor.fetchone()
+    cursor.close()
+
+    # Check if the product exists
+    if product_data:
+        # If the product exists, create a dictionary with the product data
+        product = {
+            'id': product_data[0],
+            'name': product_data[1],
+            'price': product_data[2],
+            'rating': product_data[3],
+            'image': product_data[4],
+            'description': product_data[5]
+           
+            
+        }
+
+        # Render the item.html template with the product data
+        return render_template('item.html', product=product)
+    else:
+        # If the product doesn't exist, return a 404 error
+        return "Product not found", 404
+
+
+@app.route('/view/id=1')
+def view():
+    # Get the 'id' parameter from the request
+    loc_id = 2
+
+    # Query the database to get the product with the specified id
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, name, category, price, description, image FROM locations WHERE id = %s", (loc_id,))
+    loc_data = cursor.fetchone()
+    cursor.close()
+
+    # Check if the product exists
+    if loc_data:
+        # If the product exists, create a dictionary with the product data
+        location = {
+            'id': loc_data[0],
+            'name': loc_data[1],
+            'category': loc_data[2],
+            'price': loc_data[3],
+            'description': loc_data[4],
+            'image': loc_data[5]
+            # Add other fields as needed
+        }
+
+        # Render the view.html template with the product data
+        return render_template('view.html', location=location)
+    else:
+        # If the product doesn't exist, return a 404 error
+        return "Product not found", 404
+
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    text = request.get_json().get("message")
+    response = get_response(text)
+    message = {"answer": response}
+    return jsonify(message)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

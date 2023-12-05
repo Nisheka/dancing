@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hip Hop Dance:</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+      
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
+    
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <aside class="container">
+      <input type="checkbox" id="menu__trigger">
+      <section class="menu">
+        <!--<label for="menu__trigger" class="entypo-cancel"></label>-->
+        <nav>
+            <a href="#Introduction">1. Introduction</a>
+            <a href="{{ url_for('ba') }}">2. Ballet dances</a>
+            <a href="{{ url_for('hp') }}">3. Hip Hop  dances</a>
+            <a href="{{ url_for('jaz') }}">4.Jazz  dances</a>
+            <a href="{{ url_for('tap') }}">5. Tap Dance</a>
+            <a href="{{ url_for('cou') }}">6. Country Western Dance</a>
+            <a href="{{ url_for('bal') }}">7. Ballroom Dance</a>
+            <a href="{{ url_for('homee') }}">8. Home</a>
+          </nav>
+      </section>
+      
+      <section class="content">
+        <label for="menu__trigger" class="entypo-menu"></label>
+       
+          
+      </section>
+  
+    </aside>
+<main id="documentation">
+    <div class="blog" id="Blog">
+        <h2>Hip Hop Dance</h2>
+        <div class="blog_box">
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/hi02.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"></p>History
+                    <p>
+                        Hip-hop dance, born from the vibrant streets of the United States, has a compelling history rooted in urban culture. Emerging as a dynamic expression in the 1970s, it was a response to social realities and a celebration of individuality. From its humble beginnings in block parties and underground scenes, hip-hop dance has evolved into a global phenomenon, shaping and shaped by diverse communities.</p>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="blog_card_2">
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i>    Costume:</p>
+                    <p>
+                        Hip-hop dance, as a form of self-expression, often sees diverse and casual attire. Street fashion heavily influences costumes, with loose-fitting clothing, sneakers, and accessories reflecting the cultural roots of the dance. Dancers use attire as a canvas to convey personal style, making fashion an integral part of the hip-hop dance experience.</p>
+                       
+
+                </div>
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/h103.png') }}">
+                </div>
+            </div>
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/hi01.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i></p>
+                    <p>
+                        <p>   Music Accompaniment:</p>
+                        <p>
+                            
+                            The heartbeat of hip-hop dance is intricately tied to its music, pulsating with the rhythms of rap, R&B, and electronic beats. DJs, MCs, and producers collaborate with dancers, creating a symbiotic relationship between movement and music. The improvisational nature of hip-hop dance finds resonance in the spontaneity and diversity of its musical accompaniment, fostering a culture where each beat is an invitation to express oneself authentically.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

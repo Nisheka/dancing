@@ -1,16 +1,25 @@
 :root{
-    --cadetblue:cadetblue;
+ 
+    
+    --blue:#161748;
     --pink:#e84393;
-}
+    --pinky:#ffaaab ;
+    --bac:#fff5d7;
+  }
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+   
 }
 
+body{
+    background-color: var(--bac);
+}
 
 .container{
-    background-color: rgba(95, 158, 160, 0.229);
+    background-color: var(--blue);
     width: 1400px;
     max-width:  100%;
     margin: 50px auto 0;
@@ -24,7 +33,7 @@
     row-gap: 10px;
 }
 .filter .item{
-    background-color: #fff;
+    background-color: var(--blue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +60,9 @@
 .filter .item.submit button:hover{
     background: var(--cadetblue);
 }
-
+.button:hover{
+  color: #333;  
+}
 .countResults{
     font-size: xx-large;
     text-align: center;
@@ -59,14 +70,14 @@
 }
 main{
     width: 98%;
-    background: white;
+    background: var(--bac);
     margin: 60px auto;
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: "Balsamiq Sans", cursive
 }
 header{
     width: 100%;
     height: 100px;
-    border-bottom: 2px solid #e5e5e5;
+    border-bottom: 2px solid var(--blue);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -94,9 +105,10 @@ header ul li.active a{
 }
 .filter-condition{
     padding: 20px;
-    height: 100px;
+    height: 70px;
     font-size: 20px;
     font-weight: bold;
+    color: #fff;
 }
 .filter-condition select{
     width: 120px;
@@ -105,7 +117,6 @@ header ul li.active a{
     border: none;
     text-decoration:none;
     text-transform: capitalize;
-    color: rgb(0, 128, 117);
     cursor: pointer;
 }
 .product-field{
@@ -129,7 +140,7 @@ header ul li.active a{
     position: relative;
 }
 picture{
-    background: #eee;
+    background: var(--blue);
     padding: 5px;
     position: absolute;
     right: 0;
@@ -139,7 +150,23 @@ picture{
     border-radius: 50px 20px 0 20px;
     transform: skewY(40deg);
     overflow: hidden;
-    box-shadow: 0px 1px 0px #00000020, -1px 0px 0px #cccccc;
+    box-shadow: 0px 1px 0px #00000020, -1px 0px 0px var(--blue);
+}
+
+.indicator{
+    color: #fff;
+    font-weight: bold;
+}
+
+.indicator:hover{
+    color: var(--bac);
+    font-weight: bold;
+}
+
+#select{
+    color: var(--blue);
+    border-radius: 20px; 
+    text-transform: capitalize;
 }
 picture img {
   width: 95%;
@@ -196,15 +223,21 @@ picture img {
 }
 .detail small:hover{
         background: var(--cadetblue);
-        color: white;
-        border-color: cyan;
+        color: var(--blue);
+        border-color: var(--blue);
 }
-li h4{
+li h4 {
     position: absolute;
     right: 10px;
     top: 50%;
     font-size: 30px;
     color: var(--pink);
     text-shadow: 1px 1px 2px black;
+}
+
+.back-button{
+
+ left: 1000px;
+
 }
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tap Dance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+      
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
+    
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <aside class="container">
+      <input type="checkbox" id="menu__trigger">
+      <section class="menu">
+        <!--<label for="menu__trigger" class="entypo-cancel"></label>-->
+        <nav>
+            <a href="#Introduction">1. Introduction</a>
+            <a href="{{ url_for('ba') }}">2. Ballet dances</a>
+            <a href="{{ url_for('hp') }}">3. Hip Hop  dances</a>
+            <a href="{{ url_for('jaz') }}">4.Jazz  dances</a>
+            <a href="{{ url_for('tap') }}">5. Tap Dance</a>
+            <a href="{{ url_for('cou') }}">6. Country Western Dance</a>
+            <a href="{{ url_for('bal') }}">7. Ballroom Dance</a>
+            <a href="{{ url_for('homee') }}">8. Home</a>
+          </nav>
+      </section>
+      
+      <section class="content">
+        <label for="menu__trigger" class="entypo-menu"></label>
+       
+          
+      </section>
+  
+    </aside>
+<main id="documentation">
+    <div class="blog" id="Blog">
+        <h2>Tap Dance</h2>
+        <div class="blog_box">
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba2.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"></p>History
+                    <p>
+                        Tap dance, a rhythmic marvel, finds its origins in the convergence of African and Irish dance traditions, flourishing in 19th-century America. Emerging as a vibrant expression in the melting pot of cultures, tap dance became a staple in vaudeville shows and eventually permeated various entertainment forms. The history of tap mirrors the cultural diversity of its origins, evolving into an iconic American art form synonymous with syncopation and spirited footwork.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="blog_card_2">
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i>    Costume:</p>
+                    <p>
+                        Tap dance costumes are designed to complement the energetic and percussive nature of the dance. Dancers often don sleek, comfortable attire that allows for unrestricted movement. While the focus is primarily on the skillful footwork, costumes may incorporate elements that enhance the visual impact, adding flair to the rhythmic spectacle without compromising the dancer's agility</p>
+                </div>
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba1.png') }}">
+                </div>
+            </div>
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ba.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i></p>
+                    <p>
+                        <p>   Music Accompaniment:</p>
+                        <p>
+                            The heartbeat of tap dance is the resonant symphony created by metal-tipped shoes striking the floor. Music in tap dance is an extension of the dancer's body, transforming footwork into a percussive language. Jazz, blues, and swing music often provide the backdrop, with each step becoming a note in a rhythmic conversation. The marriage of movement and music in tap dance is an exuberant celebration of athleticism, creativity, and the infectious joy of making music with one's feet.</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

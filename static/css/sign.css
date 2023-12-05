@@ -1,8 +1,17 @@
+:root{
+ 
+    
+  --blue:#161748;
+  --pink:#e84393;
+  --pinky:#ffaaab ;
+  --bac:#fff5d7;
+}
+
 *, *:before, *:after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: "Balsamiq Sans", cursive;
   }
   
   body {
@@ -11,11 +20,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(135deg, #8ac1ef, #bbdfd6, #e84393);
+    background-image: linear-gradient(135deg, #e84393, #ffaaab ,#fff5d7);
 	animation:gradient 10s ease infinite;
 	background-size: 400% 400%;
-    font-family: "Lucida Console", "Courier New", monospace;
-    color: #333333;
+  font-family: "Balsamiq Sans", cursive;
+    color: 161748;
 }
 
 @keyframes gradient{

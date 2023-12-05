@@ -1,31 +1,97 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/baa.css') }}">
     <title>Module</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/barth.css') }}">
 </head>
 <body>
-    <h1>Practicle subtopics</h1>
-    <ul>
-        {% set main_number = 1 %}
-        {% for subtopic in subtopics %}
-            <li>
-                <a href="/videos/{{ subtopic.id }}">{{ main_number }}.{{ loop.index }} {{ subtopic.title }}</a>
-                {% if user_id %}
-                    {% if subtopic.completed %}
-                        (Completed)
-                    {% else %}
-                        <a href="/mark_complete/{{ subtopic.id }}">Mark as Completed</a>
-                    {% endif %}
-                {% endif %}
-            </li>
-            {% if loop.index == loop.length %}
-                {% set main_number = main_number + 1 %}
-            {% endif %}
-        {% endfor %}
-    </ul>
-    <!-- Add a link or button to generate the report -->
- 
-    <a href="/generate_report" target="_blank" class="neon-button">Download PDF Report</a>
+
+  
+
+    <!-- partial:index.partial.html -->
+    <section>
+      <div class="list">
+        <ul>
+            {% for row in data %}
+          <li><a class="subtopic-link" href="#" onclick="loadVideo('{{ row[3] }}', '{{ row[4] }}')">{{ row[1] }}</a>
+                    
+            {% if row[5] %} <!-- Check if there is associated video information -->
+                <span class="video-info"></span>
+            {% endif %}</li>
+            {% endfor %}
+            <li><a  href="{{ url_for('account') }}">Account</a></li>
+          <li><a  href="{{ url_for('modules') }}">Back</a></li>
+          <li><a  href="{{ url_for('barth') }}">Syllabus of Bharatanatyam</a></li>
+          <li><a  href="{{ url_for('homee') }}">Home</a></li>
+      
+        </ul>
+      </div>
+      
+    </section>
+    <!-- partial -->
+      
+    
+    
+    <!-- Add your video player iframe and duration display -->
+    <div class="video-container">
+        <iframe id="videoPlayer" width="660" height="415" src="" frameborder="0" allowfullscreen></iframe> 
+          
+    </div>
+    <p id="videoDuration"></p> 
+    
+    <script>
+        // Load the first video when the page is loaded
+        window.onload = function() {
+            var defaultVideoId = '{{ data[0][3] }}';
+            var defaultVideoDuration = '{{ data[0][4] }}';
+            loadVideo(defaultVideoId, defaultVideoDuration);
+        };
+    
+        function loadVideo(videoId, duration) {
+            var videoPlayer = document.getElementById('videoPlayer');
+            var videoDuration = document.getElementById('videoDuration');
+    
+            // Construct the YouTube video URL with the provided video ID
+            var youtubeUrl = 'https://www.youtube.com/embed/' + videoId;
+    
+            // Set the source of the iframe to the constructed URL
+            videoPlayer.src = youtubeUrl;
+    
+            // Set the duration text
+            videoDuration.innerText = 'Video Duration: ' + duration;
+        }
+
+        function markSubtopicComplete(subtopicId) {
+        // Assuming you have the user ID stored in a variable 'userId'
+        var userId = 2; // Replace with the actual user ID
+
+        // Send a request to mark the subtopic as completed
+        fetch('/mark_complete/' + subtopicId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_id: userId,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Mark complete successful:', data);
+        })
+        .catch(error => {
+            console.error('Error marking complete:', error);
+        });
+    }
+</script>
+
+    </script>
+
+    
 </body>
 </html>
+

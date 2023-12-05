@@ -1,298 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Filter Product</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
-</head>
-<body>
-	<div class="container">
-        <form class="filter">
-            <div class="item">
-                <label for="">Category</label>
-                <select name="category">
-                    <option value="">---</option>
-                    <option value="Traditional ">Traditional </option>
-                    <option value="Hip Hop">Hip Hop</option>
-                    <option value="Ballet">Ballet</option>
-					<option value="Salsa">Salsa</option>
-                    <option value="Modern Dance">Modern Dance</option>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Filter Product</title>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+		</head>
+		<body>
+			<main>
+				
+				<div class="container">
 					
-                </select>
-            </div>
-           
-            <div class="item">
-                <label for="">Name</label>
-                <input type="text" name="name">
-            </div>
-            <div class="item">
-                <label for="">Min Price</label>
-                <input type="number" name="minPrice">
-            </div>
-            <div class="item">
-                <label for="">Max Price</label>
-                <input type="number" name="maxPrice">
-            </div>
-            <div class="item submit">
-                <button>rating</button>
-            </div>
-        </form>
-        <div class="countResults">
-            
-        </div>
-        <div id="list">
-            
-        </div>
-    </div>
-
-	<main>
-
-		<header>
-			<ul class="indicator">
-				<li data-filter="all" class="active"><a href="#">All</a></li>
-				<li data-filter="Traditional"><a href="#">Traditional </a></li>
-				<li data-filter="Hip Hop"><a href="#">Hip Hop</a></li>
-				<li data-filter="Ballet"><a href="#">Ballet</a></li>
-				<li data-filter="Salsa"><a href="#"> Salsa</a></li>
-				<li data-filter="Modern Dance"><a href="#">Modern Dance</a></li>
-				<li data-filter=""><a href="">Tutorials</a></li>
-			</ul>
-			<div class="filter-condition">
-				<span>View As a</span>
-				<select name="" id="select">
-					<option value="Default">Default</option>
-					<option value="LowToHigh">Low to high</option>
-					<option value="HighToLow">High to low</option>
-				</select>
-			</div>
-		</header>
-
-
-		<div class="product-field">
-			<ul class="items">
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/tardi05.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						 
-						</p>
-						<strong>Traditional</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$45.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/tardi02.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span> 
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Traditional</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$35.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/salsa02.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong> Salsa</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$40.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/ballet02.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Ballet</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$42.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/tardi03.jpg') }} " alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Traditional</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$46.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/ballet01.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
+					<header>
+						<ul class="indicator">
+							<li data-filter="all" ><a class="category-link" href="/search">All</a></li>
+							<li data-filter="Traditional"><a class="category-link" href="/search?category=Traditional">Traditional</a></li>
+							<li data-filter="Hip Hop"><a class="category-link" href="/search?category=Hip Hop">Hip Hop</a></li>
+							<li data-filter="Ballet"><a class="category-link" href="/search?category=Ballet">Ballet</a></li>
+							<li data-filter="Ballroom"><a class="category-link" href="/search?category=Ballroom">Ballroom</a></li>
+							<li data-filter="Modern Dance"><a class="category-link" href="/search?category=Modern">Modern Dance</a></li>
+							 
+						
+						</ul>
+						<div class="filter-condition">
+							<span>View As a</span>
+							<select name="" id="select">
+								<option value="Default">Default</option>
+								<option value="LowToHigh">Low to high</option>
+								<option value="HighToLow">High to low</option>
+							</select>
+	
+						</div>
+						<a href="{{ url_for('homee') }}" class="back-button"><i class="fa-solid fa-house-user fa-beat fa-2xl" style="color: #fbfdff;"></i></a>  
+					</header>
+				</div>
+		
+					<div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 20vh;">
+						<a href="/update_location">
+							<button style="background-color: #161748; /* Green background */
+											color: white; /* White text */
+											padding: 15px 32px; /* Top and bottom padding of 15px, left and right padding of 32px */
+											text-align: center; /* Center the text */
+											text-decoration: none; /* No underline */
+											display: inline-block; /* Display as inline-block */
+											font-size: 16px; /* Text size */
+											margin: 4px 2px; /* Margin */
+											cursor: pointer; /* Pointer cursor on hover */
+											border: none; /* No border */
+											border-radius: 5px; /* Rounded corners */">
+											Find Nearest Location
+							</button>
+		
+						</a>
+						
 							
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Ballet</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Buy now</small>
+					
 					</div>
-					<h4>$55.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/salsa02.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Salsa</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$25.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/slide-2.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Modern Dance</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$20.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/slide-9.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Modern Dance</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$15.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/hip pop.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Hip Hop</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$22.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/tardi04.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Traditional</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$33.78</h4>
-				</li>
-				<li data-category="" data-price="">
-					<picture>
-						<img src="{{ url_for('static', filename='images/hip pop01.jpg') }}" alt="">
-					</picture>
-					<div class="detail">
-						<p class="icon">
-						   <span><i class="far fa-heart"></i></span>
-						   <span><i class="far fa-save"></i></span>
-						   <a href="{{ url_for('rating') }}">
-							<span><i class="fas fa-comment"></i></span>
-						   </a>
-						</p>
-						<strong>Hip Hop</strong>
-						<span>Lorem, ipsum dolor sit amet consectetur.</span>
-						<small>Quik view</small>
-					</div>
-					<h4>$44.78</h4>
-				</li>
-			</ul>
-		</div>
-	</main>
-
-</body>
-</html>
-<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+				
+				<div class="product-field">
+					<ul class="items">
+						{% for location in locations %}
+						<li data-category="" data-price="{{ location.price }}">
+							<picture>
+								{% if location.image %}
+									<img src="{{ url_for('static', filename='images/' + location.image) }}" alt="{{ location.name }}">
+								{% else %}
+									<img src="{{ url_for('static', filename='images/default.jpg') }}" alt="Default Image">
+								{% endif %}
+							</picture>
+								
+								</picture>
+								<div class="detail">
+									<p class="icon">
+										<span><i class="far fa-heart"></i></span>
+										<span><i class="far fa-save"></i></span>
+										<a href="{{ url_for('view') }}" ">
+											<span><i class="fas fa-comment"></i></span>
+										</a>
+									</p>
+									<strong>{{ location.category }}</strong>
+									<span>{{ location.name }}</span>
+									<a href="{{ url_for('view') }}"> <small >Quick view</small></a>
+								</div>
+								<h4>${{ "%.2f"|format(location.price) }}</h4>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</main>
+		 
+			<script>
+			document.addEventListener("DOMContentLoaded", () => {
+			if ("geolocation" in navigator) {
+				navigator.geolocation.getCurrentPosition(success, error);
+			} else {
+			document.getElementById("location").textContent = "Geolocation is not supported by your browser.";
+			}
+		
+			function success(position) {
+				const latitude = position.coords.latitude;
+				const longitude = position.coords.longitude;
+				const accuracy = position.coords.accuracy;
+		
+				document.getElementById("location").textContent = `Latitude: ${latitude}, Longitude: ${longitude}, Accuracy: ${accuracy} meters.`;
+			}
+		
+			function error() {
+				document.getElementById("location").textContent = "Unable to retrieve your location.";
+			}
+			})
+				function sendLocation(latitude, longitude) {
+					fetch('/update_location', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					body: `latitude=${latitude}&longitude=${longitude}`
+						})
+					.then(response => response.json())
+					.then(data => {
+						console.log(data.message);
+					})
+					.catch(error => {
+						console.error('Error:', error);
+					});
+				};
+		
+				
+				document.querySelectorAll('.category-link').forEach(link => {
+					link.addEventListener('click', function(event) {
+						// Remove active class from all category links
+						// document.querySelectorAll('.indicator li').forEach(li => li.classList.remove('active'));
+			
+						// Add active class to the parent li of the clicked link
+						this.parentNode.classList.add('active');
+					});
+				});
+			
+			</script>
+		</body>
+		</html>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>

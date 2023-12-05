@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jazz Dance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
+      
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
+    
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <aside class="container">
+      <input type="checkbox" id="menu__trigger">
+      <section class="menu">
+        <!--<label for="menu__trigger" class="entypo-cancel"></label>-->
+        <nav>
+            <a href="#Introduction">1. Introduction</a>
+            <a href="{{ url_for('ba') }}">2. Ballet dances</a>
+            <a href="{{ url_for('hp') }}">3. Hip Hop  dances</a>
+            <a href="{{ url_for('jaz') }}">4.Jazz  dances</a>
+            <a href="{{ url_for('tap') }}">5. Tap Dance</a>
+            <a href="{{ url_for('cou') }}">6. Country Western Dance</a>
+            <a href="{{ url_for('bal') }}">7. Ballroom Dance</a>
+            <a href="{{ url_for('homee') }}">8. Home</a>
+          </nav>
+      </section>
+      
+      <section class="content">
+        <label for="menu__trigger" class="entypo-menu"></label>
+       
+          
+      </section>
+  
+    </aside>
+<main id="documentation">
+    <div class="blog" id="Blog">
+        <h2>Jazz Dance</h2>
+        <div class="blog_box">
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ja01.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"></p>History
+                    <p>
+                        Jazz dance, a lively fusion of African and European influences, traces its roots back to the early 20th century. Originating as a form of expression in African American communities, jazz dance evolved into a dynamic genre, reflecting the social and cultural shifts of the time. From the energetic dances of the Harlem Renaissance to its integration into musical theater, jazz dance has continually reinvented itself while preserving its rhythmic essence.</p>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="blog_card_2">
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i>    Costume:</p>
+                    <p>
+                     
+                       
+                        Jazz dance costumes are a visual testament to the genre's spirited nature. Reflecting the vivacity of the movements, costumes often feature bold colors, dynamic patterns, and a mix of athleticism and elegance. Whether in sleek leotards for a contemporary jazz piece or flashy ensembles for Broadway-inspired performances, jazz dance costumes contribute to the genre's vibrant and diverse visual palette.</p>
+                </div>
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ja02.png') }}">
+                </div>
+            </div>
+            <div class="blog_card">
+                <div class="blog_img">
+                    <img src="{{ url_for('static', filename='images/ja03.png') }}">
+                </div>
+                <div class="blog_tag">
+                    <p class="date"><i class=""></i></p>
+                    <p>
+                        <p>   Music Accompaniment:</p>
+                        <p>
+                            
+                            At the heart of jazz dance beats a syncopated rhythm that finds its counterpart in the diverse genres of music it embraces. From swing and blues to contemporary pop, jazz dance is characterized by its adaptability to various musical styles. Improvisation is not only evident in the movements but also in the choice of music, creating a harmonious interplay between the dancer's expression and the ever-changing rhythms that define the spirit of jazz dance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

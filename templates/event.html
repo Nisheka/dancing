@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/event.css') }}">
-    <title>Create Event</title>
-</head>
-<body>
-    <h1>Create Event</h1>
-  <!-- event.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/event.css') }}">
-    <title>Create Event</title>
-</head>
-<body>
-    <h1>Create Event</h1>
-    <form action="{{ url_for('event') }}" method="POST">
-        <label for="event_date">Event Date:</label>
-        <input type="date" id="event_date" name="event_date" required><br>
-        <label for="start_time">Start Time:</label>
-        <input type="time" id="start_time" name="start_time" required><br>
-        <label for="end_time">End Time:</label>
-        <input type="time" id="end_time" name="end_time" required><br>
-        <label for="break_time">Break Time:</label>
-        <input type="time" id="break_time" name="break_time" required><br>
-        <label for="sessions">Sessions:</label>
-        <input type="number" id="sessions" name="sessions" required><br>
-        <label for="lead">Lead:</label>
-        <input type="text" id="lead" name="lead" required><br>
-        <!-- Other event form fields -->
-        <button type="submit">Create Event</button>
-    </form>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/eve.css') }}">
+    <title>Add Event</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+        $(function(){
+            var dtToday = new Date();
+         
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            var maxDate = year + '-' + month + '-' + day;
+            $('#date').attr('min', maxDate);
+        });
+        </script>
+    </head>
+    <body>
+        <h1>Add New Event</h1>
+        <form action="{{ url_for('event') }}" method="post">
+    
+            <label for="title">Event Title:</label>
+            <input type="text" id="title" name="title" required>
 
-
-</body>
-</html>
+            <label for="date">Event Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time">Event Time:</label>
+            <input type="time" id="time" name="time" required>
+    
+            <label for="location">Event Location:</label>
+            <input type="text" id="location" name="location" required>
+    
+            <label for="description">Event Description:</label>
+            <textarea id="description" name="description" required></textarea>
+    
+            <button type="submit" >Create Event</button>
+        </form>
+    </body>
+    </html>
+    

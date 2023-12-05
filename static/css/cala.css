@@ -1,23 +1,21 @@
-/* Global styles */
+:root{
+ 
+    
+    --blue:#161748;
+    --pink:#e84393;
+    --pinky:#ffaaab ;
+    --bac:#fff5d7;
+  }
+
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family:"Balsamiq Sans", cursive;
     margin: 0;
     padding: 0;
 }
 
 /* Header styles */
-h1 {
-    color: #007bff; /* Blue */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Link styles */
-a {
-    color: #007bff; /* Blue */
-    text-decoration: none;
-}
 
 /* Navigation bar styles */
 .navbar {
@@ -55,12 +53,62 @@ a {
 }
 
 /* Logged-in user specific styling */
-{% if 'id' in session %}
-body {
-    background-color: #f8f8f8; /* Very light gray */
+
+/* Calendar general styles */
+#calendar {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-/* Event manager dashboard styles */
+/* Calendar header styles */
+.fc-header-toolbar {
+    background-color: var(--blue); /* Deep purple background */
+    color: white;
+    padding: 10px 16px;
+}
+
+.fc-header-toolbar .fc-button {
+    background: #333; /* Dark blue background for buttons */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 4px;
+}
+
+.fc-header-toolbar .fc-button:hover {
+    background: var(--blue) /* Lighter purple background on hover */
+}
+
+.fc-header-toolbar .fc-center h2 {
+    color: #333; /* White text color for month and year */
+}
+
+/* Day names (Sun, Mon, Tue, etc.) */
+.fc-day-header {
+    background-color: #fff5d7; /* Pink background */
+    color: #333;
+    padding: 8px 16px;
+}
+
+/* Days */
+.fc-day, .fc-day-number {
+    background-color: #161748; /* Light pink background */
+    color: white;
+}
+
+.fc-day-today {
+    background-color: #F8B195; /* Salmon pink background for 'today' */
+}
+
+/* Event styles */
+.fc-event, .fc-event-dot {
+    background-color: var(--pinky); /* Olive green background for events */
+    color: white;
+}
+
+
+
 #calendar {
     margin: 20px auto;
     width: 80%;
@@ -82,6 +130,45 @@ body {
     text-align: center;
 }
 
-/* ... Add more custom styles for logged-in users ... */
+.current-events-section {
+    background-color: var(--bac); /* Adjust the color to match your design */
+    color: var(--blue);
+    padding: 20px;
+    margin-top: 20px; /* Spacing from the calendar */
+    border-radius: 8px; /* Rounded corners */
+}
 
-{% endif %}
+.current-events-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.current-events-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.current-events-list li {
+    margin-bottom: 0.5rem;
+    /* Add more styling if needed */
+}
+
+.btn-create-event {
+    background-color: #333; /* Darker green for the button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded button corners */
+    display: inline-block; /* To apply padding and margin */
+    text-align: center;
+    border-radius: 5rem;
+    text-transform: capitalize;
+}
+
+.btn-create-event:hover {
+    background-color: var(--blue);/* Even darker green for hover state */
+}
+

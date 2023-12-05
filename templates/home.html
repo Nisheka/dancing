@@ -27,7 +27,28 @@
             window.onload = function() {
                 showConfirmationPopup();
             };
-        </script>
+
+            
+            function handleItemClick(item) {
+        // Store the clicked item in session
+        fetch('/store_target_page', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ target_page: item }),
+        }).then(() => {
+            // Redirect to the login page after storing the item
+            window.location.href = '/signin';
+        });
+    }
+</script>
+
+<!-- ... Your existing HTML content ... -->
+
+
+
+
       
     </head>
     <body>
@@ -47,14 +68,6 @@
 
 <!-- Rest of your header and content -->
 
-
-            
-             
-
-
-        
-
-
         <header>
             <input type="checkbox" name="" id="toggler">
             <label for="toggler" class="fas fa-bars"></label>
@@ -62,79 +75,85 @@
             <a href="#" class="logo">නටමුද<span>.lk</span></a>
               
             <div class="menu-bar">
-               
                 <ul>
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#">Dance journey <i class="fas fa-caret-down"></i></a>
-                      <div class="dropdown-menu">
-                          <ul>
-                            <li>
-                              <a href="#">Dance Styles  <i class="fas fa-caret-right"></i></a>
-                              
-                              <div class="dropdown-menu-1">
-                                <ul>
-                                    <li><a href="{{ url_for('Local') }}">Classical Dance</a></li>
-                                    <li><a href="#">Western Dance</a></li>
-                                    <li><a href="#">Bharatanatyam <i class="fas fa-caret-right"></i></a>
-                                        <div class="dropdown-menu-2">
-                                            <ul>
-                                                <li><a href="#">About Bharatanatyam</a></li>
-                                                <li><a href="#">Exam Details</a></li>
-                                                <li><a href="{{ url_for('barth') }}">Exam Syllabus</a></li>
-                                                <li><a href="#">Rules and Regulations</a></li>
-                                                <li><a href="#">Exam Preparation Tips</a></li>
-                                            </ul>
-                                          </div>
-                                    </li>
-                                    <li><a href="#">more..</a></li>
-                                </ul>
-                              </div>
-                            </li>
-                            <li>
-                                <a href="{{ url_for('uni') }}">University Degrees</a>
-                                
-                              </li>
-                              <li>
-                                <a href="{{ url_for('tutorial') }}">Tutorials  <i class="fas fa-caret-right"></i></a>
-                                
-                                <div class="dropdown-menu-1">
-                                  <ul>
-                                      <li><a href="#">Dance Basics</a></li>
-                                      <li><a href="#">Surprise Dance</a></li>
-                                      <li><a href="#">Wedding Dance</a></li>
-                                      <li><a href="#">Dance Workouts</a></li>
-                                      <li><a href="#">more..</a></li>
-                                  </ul>
-                                </div>
-                              </li>   
-                          </ul>
-                        </div>
-                  </li>
-                  <li><a href="#products">Professionals <i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+         
+                    <li><a href="">Dance journey</a>
+                    
+                        <!--First Tier Drop Down-->
                         <ul>
-                          <li><a href="{{ url_for('search') }}">Choreographers</a></li>
+        
+        
 
-                          <li>
-                            <a href="{{ url_for('search') }}">Costume Designers  <i class="fas fa-caret-right"></i></a>
+                            <li><a href="{{ url_for('uni') }}" onclick="handleItemClick('uni')">Universities</a></li>
+                            <li><a href="">Dance Styles  </a>
                             
-                            <div class="dropdown-menu-1">
-                              <ul>
-                                  <li><a href="{{ url_for('coustume') }}">Shop Costumes</a></li>
+                                <!--Second Tier Drop Down-->
+        
+                                <ul>
+        
+                                    <li><a href="{{ url_for('Local') }}" onclick="handleItemClick('Local')">Classical Dance</a></li>
+                                    <li><a href="{{ url_for('western') }}" onclick="handleItemClick('western')">Western Dance</a></li>
+                                    <li><a href="{{ url_for('barath') }}" onclick="handleItemClick('barath')">Bharatanatyam </a>
+                                    
+                                        <!-- Third Tier Drop Down-->
+                                        <ul>
+        
+                                            <li><a href="{{ url_for('barath') }}" onclick="handleItemClick('barath')">About Bharatanatyam</a></li>
+                                            <li><a href="{{ url_for('exam') }}" onclick="handleItemClick('exam')">Exam Details</a></li>
+                                            <li><a href="{{ url_for('rule') }}" onclick="handleItemClick('rule')">Rules and Regulations</a></li>
+                                            <li><a href="{{ url_for('barth') }}" onclick="handleItemClick('barth')">Modules</a></li>
+        
+                                        </ul>
+                                    
+                                    </li>
+        
+                                </ul>
+                                <li><a href="{{ url_for('tutorial') }}" onclick="handleItemClick('tutorial')">Tutorials</a>
+                                    <ul>
+            
+                                        <li><a href="#">Dance Basics</a></li>
+                                        <li><a href="#">Surprise Dance</a></li>
+                                        <li><a href="#">Wedding Dance</a></li>
+                                        <li><a href="#">Dance Workouts</a></li>
+                                        <li><a href="#">more..</a></li>
     
-                              </ul>
-                            </div>
-                          </li>
+                                    </ul></li>
+                            
+                            </li>
+        
+                        </ul>
+                    
+                    </li>
+                    <li><a href="">Professionals</a>
+                                                    
+                                <!--Second Tier Drop Down-->
+        
+                                <ul>
+        
+                                    
+                                    <li><a href="{{ url_for('search') }}" onclick="handleItemClick('search')">Choreographers</a></li>
+                                    <li><a href="{{ url_for('search') }}" onclick="handleItemClick('search')">Costume Designers </a>
+                                    
+                                        <!-- Third Tier Drop Down-->
+                                        
+                                    </li>
+        
+                                </ul>
+                    </li>            
+                    <li><a href="#review">Review</a></li>
+                    <li><a href="#contact">contact us</a></li>
+                    
+                </ul>
+      
+               
               </div>
-              <li><a href="#review">Review</a>
-              </li>
-              <li><a href="#contact">contact us</a>
-              </li>
+            
             <div class="icons">
                 <!--<a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-save"></a>-->
-                <a href="{{ url_for('dashboard') }}" class="fas fa-user"></a>
+                <a href="{{ url_for('dashboard') }}" onclick="handleItemClick('dashboard')" class="fas fa-user"></a>
             </div>
         </header>
 <!-- home section starts-->
@@ -145,7 +164,7 @@
                 <p>the website is to provide a comprehensive online resource for dancers, and anyone interested in dance and to create a dynamic and vibrant online community for the dance community</p>
                 <div class="btns">
                     <a href="{{ url_for('search') }}">
-                    <button>search</button>
+                    <button onclick="handleItemClick('search')">search</button>
                     </a>
                     <a href="{{ url_for('sign') }}">
                     <button>Login</button>
@@ -252,22 +271,34 @@
                         <h2><i class="fa fa-id-card" aria-hidden="true"></i> Upcoming Events</h2>
                         <div class="notice-board">
                            <marquee direction="up" scrollamount="4" height="400">
-                              <ul class="event-list">
-                                 <li>
-                                    <div class="event-date">
-                                       <h3>27 <br>
-                                          April
-                                       </h3>
-                                       <p>9:00 PM<br>
-                                          4:00 AM
-                                       </p>
-                                    </div>
-                                    <div class="event-content">
-                                       <h5> The Dance Complex | Dance classes for kids and adults, dance performances | , 2022-23</h5>
-                                       <a href="#"><i class="fa fa-user icon"></i></i> Join bood</a> <a  href="#"><i class="fa fa-map-marker"></i> New Yark</a>
-                                       <p>Cambridge and Bostont 2022-23</p>
-                                    </div>
-                                 </li>
+                            <table class="">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Event Details</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for event in events %}
+                                        <tr>
+                                            <td class="event-date">
+                                                <h3>{{ event.date.strftime('%B %d, %Y') }}</h3>
+                                                <p>{{ event.time.strftime('%H:%M') }}<br> </p>
+                                            </td>
+                                            <td class="event-content">
+                                                <h5>{{ event.title }}</h5>
+                                                <p>{{ event.description }}</p>
+                                                <p><i class="fa fa-map-marker"></i> {{ event.location }}</p>
+                                            </td>
+                                            
+                                        </tr>
+                                    {% else %}
+                                        <tr><td colspan="3">No events found</td></tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            
                                  <li>
                                     <div class="event-date">
                                        <h3>27 <br>

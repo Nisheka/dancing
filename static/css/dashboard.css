@@ -4,13 +4,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: "Balsamiq Sans", cursive;
 }
 .sidebar{
   position: fixed;
   height: 100%;
   width: 240px;
-  background: cadetblue;
+  background: #161748;
   transition: all 0.5s ease;
 }
 .sidebar.active{

@@ -1,0 +1,123 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "bharatanatyam",
+      "patterns": [
+        "Tell me about Bharatanatyam",
+        "What is Bharatanatyam?",
+        "Can you explain classical dance?",
+        "Bharatanatyam information"
+      ],
+      "responses": [
+        "Bharatanatyam is a classical dance form originating from South India. It involves intricate footwork, hand gestures, and facial expressions. The dance often narrates stories from Hindu mythology.",
+        "Bharatanatyam is known for its grace and expressiveness. It's a traditional art form that has been passed down through generations.",
+        "If you have specific questions about Bharatanatyam, feel free to ask!"
+      ]
+    },
+    {
+      "tag": "bharatanatyam_exam_tips",
+      "patterns": [
+        "Any tips for Bharatanatyam exams?",
+        "How to prepare for Bharatanatyam exams?",
+        "Bharatanatyam exam tips",
+        "Tell me about Bharatanatyam practical exam"
+      ],
+      "responses": [
+        "Certainly! To excel in Bharatanatyam exams, focus on perfecting your adavus, expressions, and understanding the theoretical aspects. Practice regularly, pay attention to details, and seek guidance from your Guru. Additionally, make sure to study the theoretical elements, including the history and technical terms of Bharatanatyam. If you have specific questions, feel free to ask for more detailed tips! For a comprehensive tutorial, you can also check out this [Bharatanatyam Exam Preparation Tutorial]."
+      ]
+    },
+  
+    {
+      "tag": "exam_page_link",
+      "patterns": [
+        "Show me the exam details",
+        "Exam information",
+        "Where can I find details about the exam?",
+        "Tell me about the exam page"
+      ],
+      "responses": [
+        "Sure! You can find detailed information about the exam on our [exam page]."
+      ]
+    },
+    {
+      "tag": "rule_page_link",
+      "patterns": [
+        "What are the rules?",
+        "Tell me about the rules",
+        "Where can I find the rules?",
+        "Show me the rule page"
+      ],
+      "responses": [
+        "Certainly! You can review the rules on our [rule page]."
+      ]
+    },
+    
+    {
+      "tag": "bharatanatyam_examinations",
+      "patterns": [
+        "Tell me about Bharatanatyam examinations.",
+        "How many types of Bharatanatyam exams are there?",
+        "Explain the categories of Bharatanatyam examinations."
+      ],
+      "responses": [
+        "Bharatanatyam examinations consist of four main types: Prathama, Madhyama, Visharad Part I, and Visharad Part II. Each level focuses on practical and theoretical aspects of dance, progressing in complexity and depth."
+      ]
+    },
+    {
+      "tag": "bharatanatyam_symbols",
+      "patterns": [
+        "What are the symbols in Bharatanatyam?",
+        "Tell me about Bharatanatyam mudras.",
+        "Explain the use of symbols in classical dance."
+      ],
+      "responses": [
+        "Bharatanatyam uses a rich vocabulary of symbolic gestures called mudras. These hand movements convey specific meanings and emotions, adding depth to the performance."
+      ]
+    },
+    {
+      "tag": "bharatanatyam_preparation_tips",
+      "patterns": [
+        "Any tips for preparing for Bharatanatyam exams?",
+        "How to get ready for Bharatanatyam examinations?",
+        "Share some Bharatanatyam exam preparation advice."
+      ],
+      "responses": [
+        "To excel in Bharatanatyam exams, focus on perfecting your adavus, expressions, and theoretical understanding. Practice regularly, pay attention to details, and seek guidance from your Guru. Study the history and technical terms of Bharatanatyam. If you have specific questions, feel free to ask for more detailed tips!"
+      ]
+    }
+    
+    
+    
+  ]
+}

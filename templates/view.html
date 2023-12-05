@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chorega Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Basic reset */
+        body, h2, img {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Set box-sizing to border-box for all elements */
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        
+        /* Body and container setup */
+        body {
+            font-family: "Balsamiq Sans", cursive;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px; /* Adjust as per your layout requirement */
+            margin: auto;
+        }
+
+        /* Image and Details section */
+        .image-section, .details-section {
+            flex: 1;
+            min-width: 500px; /* Adjust minimum width as needed */
+        }
+
+        .image-section {
+            order: 1; /* Order 2 will push it to the right */
+        }
+
+        .details-section {
+            order: 2; /* Order 1 will pull it to the left */
+            background-color: #fff;
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            justify-content: space-between; /* Distribute space between items */
+            height: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image styling */
+        .image-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Product details styling */
+        .details-section h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .details-section .price {
+            color: #E44D26;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .details-section .description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .details-section .add-to-cart {
+            background-color: #141212;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+
+        .description {
+            flex-grow: 1; /* Allow description to fill available space */
+            /* ... other styles ... */
+            overflow-y: auto; /* Enable scroll if content is too long */
+            margin-bottom: 20px; /* Give some space before the buttons */
+        }
+                .quantity-selector,
+        .color-selector {
+            margin-top: 10px;
+        }
+
+        .quantity-selector label {
+            margin-right: 10px;
+        }
+
+        .color-selector p {
+            margin-bottom: 5px;
+        }
+
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .color-option:focus,
+        .color-option:hover {
+            border: 2px solid #999;
+        }
+
+        /* Add additional CSS for other elements as needed */
+
+        
+        /* Additional styles can go here */
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='images/' + location.image) }}" alt="{{ location.category }}" style="width: 100%; border-radius: 10px;">
+        </div>
+        <div class="details-section">
+            <h2>{{ location.category }}</h2>
+            <br>
+            <h2>Location:{{ location.name }}</h2>
+            <h2>Contact number: 0773442864</h2>
+            <div class="price">$ {{ location.price }}</div>
+  
+            <br>
+            <!-- Add your rating stars rendering logic here if needed -->
+            <div class="description">
+                {{ location.description }}
+            </div>
+           
+               
+            <br>
+            <br>
+            <br>
+<div>
+            <a href="{{ url_for('search') }}"><button class="add-to-cart">Back</button></a>
+            <a href="{{ url_for('homee') }}"><button  class="add-to-cart">Home</button></a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

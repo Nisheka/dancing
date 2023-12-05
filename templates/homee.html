@@ -8,6 +8,22 @@
       
     </head>
     <body>
+
+        
+       <!-- Sticky button calendar -->
+<button class="sticky-cal-button" id="myStickyButton" onclick="openCal()">Calendar</button>
+
+<!-- Calendar popup -->
+<div id="Calpopup" class="modal">
+    <!-- Your calendar content goes here -->
+    <h2>Calendar Popup</h2>
+    <!-- Add your calendar content or iframe here -->
+    <iframe src="{{ url_for('calendar') }}" width="600" height="400" frameborder="0"></iframe>
+    <button onclick="closeCal()">Close</button>
+</div>
+
+<!-- Rest of your header and content -->
+
         <header>
             <input type="checkbox" name="" id="toggler">
             <label for="toggler" class="fas fa-bars"></label>
@@ -15,79 +31,86 @@
             <a href="#" class="logo">නටමුද<span>.lk</span></a>
               
             <div class="menu-bar">
-               
                 <ul>
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#">Dance journey <i class="fas fa-caret-down"></i></a>
-                      <div class="dropdown-menu">
-                          <ul>
-                            <li>
-                              <a href="#">Dance Styles  <i class="fas fa-caret-right"></i></a>
-                              
-                              <div class="dropdown-menu-1">
-                                <ul>
-                                    <li><a href="{{ url_for('Local') }}">Classical Dance</a></li>
-                                    <li><a href="#">Western Dance</a></li>
-                                    <li><a href="#">Bharatanatyam <i class="fas fa-caret-right"></i></a>
-                                        <div class="dropdown-menu-1">
-                                            <ul>
-                                                <li><a href="#">About Bharatanatyam</a></li>
-                                                <li><a href="#">Exam Details</a></li>
-                                                <li><a href="#">Exam Centers</a></li>
-                                                <li><a href="#">Rules and Regulations</a></li>
-                                                <li><a href="#">Exam Preparation Tips</a></li>
-                                            </ul>
-                                          </div>
-                                    </li>
-                                    <li><a href="#">more..</a></li>
-                                </ul>
-                              </div>
-                            </li>
-                            <li>
-                                <a href="{{ url_for('uni') }}">University Degrees</a>
-                                
-                              </li>
-                              <li>
-                                <a href="{{ url_for('tutorial') }}">Tutorials  <i class="fas fa-caret-right"></i></a>
-                                
-                                <div class="dropdown-menu-1">
-                                  <ul>
-                                      <li><a href="#">Dance Basics</a></li>
-                                      <li><a href="#">Surprise Dance</a></li>
-                                      <li><a href="#">Wedding Dance</a></li>
-                                      <li><a href="#">Dance Workouts</a></li>
-                                      <li><a href="#">more..</a></li>
-                                  </ul>
-                                </div>
-                              </li>   
-                          </ul>
-                        </div>
-                  </li>
-                  <li><a href="#products">Professionals <i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+         
+                    <li><a href="">Dance journey</a>
+                    
+                        <!--First Tier Drop Down-->
                         <ul>
-                          <li><a href="{{ url_for('search') }}">Choreographers</a></li>
+        
+        
 
-                          <li>
-                            <a href="{{ url_for('search') }}">Costume Designers  <i class="fas fa-caret-right"></i></a>
+                            <li><a href="{{ url_for('uni') }}">Universities</a></li>
+                            <li><a href="">Dance Styles  </a>
                             
-                            <div class="dropdown-menu-1">
-                              <ul>
-                                  <li><a href="{{ url_for('coustume') }}">Shop Costumes</a></li>
+                                <!--Second Tier Drop Down-->
+        
+                                <ul>
+        
+                                    <li><a href="{{ url_for('Local') }}">Classical Dance</a></li>
+                                    <li><a href="{{ url_for('western') }}">Western Dance</a></li>
+                                    <li><a href="{{ url_for('barath') }}">Bharatanatyam </a>
+                                    
+                                        <!-- Third Tier Drop Down-->
+                                        <ul>
+        
+                                            <li><a href="{{ url_for('barath') }}">About Bharatanatyam</a></li>
+                                            <li><a href="{{ url_for('exam') }}">Exam Details</a></li>
+                                            <li><a href="{{ url_for('rule') }}">Rules and Regulations</a></li>
+                                            <li><a href="{{ url_for('barth') }}">Modules</a></li>
+        
+                                        </ul>
+                                    
+                                    </li>
+        
+                                </ul>
+                                <li><a href="{{ url_for('tutorial') }}">Tutorials</a>
+                                    <ul>
+            
+                                        <li><a href="#">Dance Basics</a></li>
+                                        <li><a href="#">Surprise Dance</a></li>
+                                        <li><a href="#">Wedding Dance</a></li>
+                                        <li><a href="#">Dance Workouts</a></li>
+                                        <li><a href="#">more..</a></li>
     
-                              </ul>
-                            </div>
-                          </li>
+                                    </ul></li>
+                            
+                            </li>
+        
+                        </ul>
+                    
+                    </li>
+                    <li><a href="">Professionals</a>
+                                                    
+                                <!--Second Tier Drop Down-->
+        
+                                <ul>
+        
+                                    
+                                    <li><a href="{{ url_for('search') }}">Choreographers</a></li>
+                                    <li><a href="{{ url_for('search') }}">Costume Designers </a>
+                                    
+                                        <!-- Third Tier Drop Down-->
+                                        
+                                    
+                                    </li>
+        
+                                </ul>
+                    </li>            
+                    <li><a href="#review">Review</a></li>
+                    <li><a href="#contact">contact us</a></li>
+                    
+                </ul>
+      
+               
               </div>
-              <li><a href="#review">Review</a>
-              </li>
-              <li><a href="#contact">contact us</a>
-              </li>
+            
             <div class="icons">
                 <!--<a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-save"></a>-->
-                <a href="#" class="fas fa-user"></a>
+                <a href="{{ url_for('dashboard') }}" class="fas fa-user"></a>
             </div>
         </header>
 <!-- home section starts-->
@@ -101,7 +124,7 @@
                     <button>search</button>
                     </a>
                     <a href="{{ url_for('home') }}">
-                    <button>Logout</button>
+                    <button>Log Out</button>
                 </a>
                 </div>  
             </div>
@@ -529,7 +552,25 @@
 
 
 
-
+        <script>
+            window.onscroll = function() {scrollFunction()};
+        
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("myStickyButton").style.display = "block";
+                } else {
+                    document.getElementById("myStickyButton").style.display = "block";
+                }
+            }
+        
+            function openCal() {
+                document.getElementById("Calpopup").style.display = "block";
+            }
+        
+            function closeCal() {
+                document.getElementById("Calpopup").style.display = "none";
+            }
+        </script>
 
 
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Western Dancing</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        
+      <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
+    
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <aside class="container">
+      <input type="checkbox" id="menu__trigger">
+      <section class="menu">
+        <!--<label for="menu__trigger" class="entypo-cancel"></label>-->
+        <nav>
+          <a href="#Introduction">1. Introduction</a>
+          <a href="{{ url_for('ba') }}">2. Ballet dances</a>
+          <a href="{{ url_for('hp') }}">3. Hip Hop  dances</a>
+          <a href="{{ url_for('jaz') }}">4.Jazz  dances</a>
+          <a href="{{ url_for('tap') }}">5. Tap Dance</a>
+          <a href="{{ url_for('cou') }}">6. Country Western Dance</a>
+          <a href="{{ url_for('bal') }}">7. Ballroom Dance</a>
+          <a href="{{ url_for('homee') }}">8. Home</a>
+        </nav>
+      </section>
+      
+      <section class="content">
+        <label for="menu__trigger" class="entypo-menu"></label>
+        <h1>Western Dance Styles</h1>
+          
+      </section>
+  
+    </aside>
+ 
+
+
+
+<body>
+    <div class="tech-slideshow">
+        <div class="mover-1">   <img src="{{ url_for('static', filename='images/P.png') }}"></div>
+        <div class="mover-2">   <img src="{{ url_for('static', filename='images/P.png') }}"></div>
+      </div>
+      
+
+         
+
+    <main id="documentation">
+      <section id="Introduction">
+        <article>
+            <p>There are several styles of Western dance:</p>
+            <ul>
+                <li>1. Ballet </li>
+                <li>2. Tap dance</li>
+                <li>3. jazz dance</li>
+                <li>4. Modern dance</li>
+                <li>5. Hip-hop dance</li>
+                <li>6. Line dancing</li>
+                <li>7. Square dancing</li>
+                <li>8. Country western dance</li>
+                <li>9. Ballroom dance</li>
+            </ul>
+
+            <br>
+            <p>Embark on a fascinating journey tracing the history of Western dance, a tapestry woven with diversity and constant evolution. From ancient times to the present, the West's dance narrative unfolds with a dynamic spirit, embracing ritual, social, and theatrical forms. Ballet's graceful emergence, the enchanting waltz, and the ever-evolving landscape of modern dance mark pivotal moments in this rich heritage. Unlike the East's adherence to refined traditions, Western dance eagerly embraces new expressions. Explore the intricacies of communal rituals, social revelry, and theatrical prowess, all reflective of a culture perpetually open to the rhythmic winds of change.</p>
+        </body>
+         
+    </main>
+  </body>
+
+  </html>

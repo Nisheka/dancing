@@ -1,15 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Modules</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/barth.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ba.css') }}">
+    <title>Main Modules</title>
+  
+
+
+
 </head>
 <body>
-    <h1>Modules</h1>
-    <ul>
+    <div class="layout-wrapper">
+        <nav class="cover-wrapper">
+            <header class="page-header">
+                <h1 class="headline"></h1>
+            </header>
+            <div class="page-sub">
+                <div class="subhead-container">
+                    <h2 class="subhead"></h2>
+                </div>
+               
+            </div>
+        </nav>
+   
+	<h1>Main Modules</h1>
+	<ol class="olcards">
         {% for module in modules %}
-            <li><a href="{{ url_for('module', module_id=module.id) }}">{{ module.title }}</a></li>
+		<li style="--cardColor:#fc374e">
+			<div class="content">
+				<div class="icon">😀</div>
+				<div class="title"><a class="module-link" href="{{ url_for('module', module_id=module[0]) }}">{{ module[1] }}</a></div>
+				<div class="text">Prathama syllabus.</div>
+			</div>
+		</li>
         {% endfor %}
-    </ul>
+        <li style="--cardColor:#36aeb3">
+			<div class="content">
+				<div class="icon">😁</div>
+				<div class="title"><a  href="{{ url_for('barth') }}">Back</a></div>
+				<div class="text"></div>
+			</div>
+		</li>
+
+        <li style="--cardColor:#162d59">
+			<div class="content">
+				<div class="icon">😉</div>
+				<div class="title"> <a  href="{{ url_for('homee') }}">Home</a></div>
+				<div class="text"></div>
+			</div>
+		</li>
+	</ol>
+    </div>
 </body>
+<!-- partial -->
+  
+
 </html>
+
+
+

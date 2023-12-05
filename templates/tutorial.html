@@ -109,26 +109,55 @@
 </div>
 
 
-<!-- custom js file link  -->
-<script> 
-let videoList = document.querySelectorAll('.video-list-container .list');
 
-videoList.forEach(vid =>{
-   vid.onclick = () =>{
-      videoList.forEach(remove =>{remove.classList.remove('active')});
-      vid.classList.add('active');
-     
-      let src = vid.querySelector('.list-video').src;
-      let title = vid.querySelector('.list-title').innerHTML;
-     
-      
-      document.querySelector('.main-video-container .main-video').src = src;
-      document.querySelector('.main-video-container .main-video').play();
-      document.querySelector('.main-video-container .main-vid-title').innerHTML = title;
-   
-   };
-});
-</script>
+ 
+<script>
+   let videoList = document.querySelectorAll('.video-list-container .list');
+   let isFirstVideo = true; // Flag to check if it's the first video
+ 
+   videoList.forEach((vid, index) => {
+     vid.onclick = () => {
+       // Remove 'active' class from all list items
+       videoList.forEach((remove) => {
+         remove.classList.remove('active');
+       });
+ 
+       // Add 'active' class to the clicked list item
+       vid.classList.add('active');
+ 
+       // Get the source and title of the clicked video
+       let src = vid.querySelector('.list-video').src;
+       let title = vid.querySelector('.list-title').innerHTML;
+ 
+       // Update all main videos with the clicked video source
+       let mainVideos = document.querySelectorAll('.main-video-container .main-video');
+       mainVideos.forEach((mainVideo, videoIndex) => {
+         if (isFirstVideo && videoIndex === 0) {
+           // Play the first video automatically
+           mainVideo.src = src;
+           mainVideo.load();
+           mainVideo.play();
+           isFirstVideo = false; // Set flag to false after playing the first video
+         } else {
+           // Load other videos without playing
+           mainVideo.src = src;
+           mainVideo.load();
+         }
+       });
+ 
+       // Update all main titles with the clicked video title
+       let mainTitles = document.querySelectorAll('.main-video-container .main-vid-title');
+       mainTitles.forEach((mainTitle) => {
+         mainTitle.innerHTML = title;
+       });
+     };
+   });
+ </script>
+ 
+ 
+
+
+
 
 </body>
 </html>

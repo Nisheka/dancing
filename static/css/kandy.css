@@ -1,18 +1,162 @@
 :root{
-    --blue:cadetblue;
-    --pink:#e84393;
-    --pinky:#e798be;
-  }
-
-html,
-
-body {
-  min-width: 290px;
-  color: #4d4e53;
-  background-color: #ffffff;
-  font-family: "Lucida Console", "Courier New", monospace;
-  line-height: 1.5;
+ 
+    
+  --blue:#161748;
+  --pink:#e84393;
+  --pinky:#ffaaab ;
+  --bac:#fff5d7;
 }
+
+
+
+[class*="entypo-"]:before {
+  font-family: "Balsamiq Sans", cursive;
+}
+
+html {
+  min-height: 100%;
+  min-width: 100%;
+}
+html body {
+  min-height: 100%;
+  min-width: 100%;
+  font-family: "Balsamiq Sans", cursive;
+  background-color: var(--bac);
+}
+html body input[type="checkbox"] {
+  position: absolute;
+  height: 0;
+  width: 0;
+  display: none;
+}
+html body input[type="checkbox"]:checked ~ .menu nav a {
+  -webkit-transform: translate3d(0px, 0, 0) rotateY(0deg);
+  transform: translate3d(0px, 0, 0) rotateY(0deg);
+  -webkite-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  background: var(--blue);
+  color: #fff;
+}
+html body input[type="checkbox"]:checked ~ .menu nav a:nth-child(2) {
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s;
+}
+html body input[type="checkbox"]:checked ~ .menu nav a:nth-child(3) {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s;
+}
+html body input[type="checkbox"]:checked ~ .menu nav a:nth-child(4) {
+  -webkit-transition-delay: .3s;
+  transition-delay: 0.3s;
+}
+html body input[type="checkbox"]:checked ~ .menu nav a:nth-child(5) {
+  -webkit-transition-delay: .4s;
+  transition-delay: .4s;
+}
+html body input[type="checkbox"]:checked ~ .menu nav a:nth-child(6) {
+  -webkit-transition-delay: .5s;
+  transition-delay: 0.5s;
+}
+html body input[type="checkbox"]:checked ~ .menu nav a:nth-child(7) {
+  -webkit-transition-delay: .6s;
+  transition-delay: 0.6s;
+}
+html body input[type="checkbox"]:checked ~ .menu nav a:nth-child(8) {
+  -webkit-transition-delay: .7s;
+  transition-delay: 0.7s;
+}
+html body section.menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  min-height: 100%;
+}
+html body section.menu nav {
+  padding-top: 4rem;
+  -webkit-perspective: 20rem;
+  perspective: 20rem;
+}
+html body section.menu nav a {
+  display: block;
+  width: 12rem;
+  padding: 1.25rem 0rem 1.25rem 1.75rem;
+  background: var(--pink);
+  border-bottom: 1px solid #2a2a2a;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15), inset 2px 0 0 #fff;
+  color: #fff;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+  font-size: 1.25rem;
+  text-decoration: none;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+html body section.menu nav a:nth-child(1) {
+  -webkit-transition-delay: .235s;
+  transition-delay: .235s;
+}
+html body section.menu nav a:nth-child(2) {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s;
+}
+html body section.menu nav a:nth-child(3) {
+  -webkit-transition-delay: .165s;
+  transition-delay: .165s;
+}
+html body section.menu nav a:nth-child(4) {
+  -webkit-transition-delay: .13s;
+  transition-delay: .13s;
+}
+html body section.menu nav a:nth-child(5) {
+  -webkit-transition-delay: .095s;
+  transition-delay: .095s;
+}
+html body section.menu nav a:nth-child(6) {
+  -webkit-transition-delay: .06s;
+  transition-delay: .06s;
+}
+html body section.menu nav a:nth-child(7) {
+  -webkit-transition-delay: .25s;
+  transition-delay: .025s;
+}
+html body section.content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 100%;
+  min-width: 100%;
+  display: table;
+  background: var(--bac);
+}
+html body section.content label {
+  position: fixed;
+  z-index: 1000;
+  padding: 1rem 1.5rem;
+  background: var(--blue);
+  font-size: 2rem;
+  line-height: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+html body section.content h1 {
+  display: table-cell;
+  text-align: center;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  color: var(--blue);
+}
+
 
 #sidebar {
   position: fixed;
@@ -66,6 +210,11 @@ h1 {
   margin-left: 310px;
   padding: 20px;
   margin-bottom: 110px;
+    text-align: justify; 
+    line-height: 1.5;
+    max-width: 1700px; 
+    padding: 10px;
+  
 }
 
 section article {
@@ -86,7 +235,7 @@ pre {
   word-break: normal;
   word-wrap: normal;
   line-height: 2;
-  background-color: #f7f7f7;
+  background-color: var(--bac);
   padding: 15px;
   margin: 10px;
   border-radius: 5px;
@@ -109,7 +258,7 @@ table {
   }
 
   #sidebar {
-    background-color: white;
+    background-color: var(--bac);
     position: absolute;
     top: 0;
     padding: 0;
@@ -182,6 +331,7 @@ table {
     display: flex;
     align-items: center;
     text-align: justify;
+    
    
 }
 

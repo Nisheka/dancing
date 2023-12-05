@@ -1,20 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 :root{
-   --blue:rgb(95, 158, 160);
+ 
+    
+   --blue:#161748;
    --pink:#e84393;
-   --pinky:#e798be;
+   --pinky:#ffaaab ;
+   --bac:#fff5d7;
  }
+
 *{
-   font-family: "Lucida Console", "Courier New", monospace;
+   font-family: "Balsamiq Sans", cursive;
    margin:0; padding:0;
    box-sizing: border-box;
    outline: none; border:none;
    text-decoration: none;
    text-transform: capitalize;
+   
 }
 
 body{
-   background-color: var(--pinky);
+   background-color: var(--bac);
    padding:20px;
 }
 /* Add this CSS to your existing tuto.css or in a new CSS file */
@@ -64,7 +69,7 @@ body{
 
 .container .main-video-container .main-vid-title{
    font-size: 20px;
-   color:#444;
+   color:var(--blue)
 }
 
 

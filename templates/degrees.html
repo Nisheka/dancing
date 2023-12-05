@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/degree.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uni.css') }}">
     <title>University Degrees</title>
 </head>
 <body>
-    <h1>Degrees</h1>
+    <div class="imagesec"><img  src="{{ url_for('static', filename='images/high1.jpg') }}" class="image"></div>
+    <div class="heading"><h1>Degrees</h1><div>
+        <div class="back-button-container">
+            <a href="{{ url_for('homee') }}" class="back-button1"><i class="fa-solid fa-house-user fa-beat fa-2xl" style="color: #ffffff;"></i></a>  
+        </div>
+    <div class="main">
     <a href="{{ url_for('uni') }}" class="back-button">Back to University</a>
     <form action="{{ url_for('degrees_page') }}" method="POST">
         <label for="university">Select University:</label>
@@ -15,8 +22,8 @@
             {% for university in universities %}
                 <option value="{{ university[0] }}">{{ university[1] }}</option>
             {% endfor %}
-        </select>
-        <button type="submit">Search</button>
+        </select>  <button type="submit">Search</button>
+       
     </form>
     
     {% if degrees %}
@@ -39,6 +46,6 @@
         </table>
     {% endif %}
 
-    <div class="placeholder-image"><img  src="{{ url_for('static', filename='images/dance.jpg') }}"></div>
+</div>
 </body>
 </html>

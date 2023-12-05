@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find My Location</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <ul class="indicator">
+                <li data-filter="all" ><a class="category-link" href="/search">All</a></li>
+                <li data-filter="Traditional"><a class="category-link" href="/search?category=Traditional">Traditional</a></li>
+                <li data-filter="Hip Hop"><a class="category-link" href="/search?category=Hip Hop">Hip Hop</a></li>
+                <li data-filter="Ballet"><a class="category-link" href="/search?category=Ballet">Ballet</a></li>
+                <li data-filter="Ballroom"><a class="category-link" href="/search?category=Ballroom">Ballroom</a></li>
+                <li data-filter="Modern Dance"><a class="category-link" href="/search?category=Modern">Modern Dance</a></li>
+                  
+            
+            </ul>
+            <div class="filter-condition">
+                <span>View As a</span>
+                <select name="" id="select">
+                    <option value="Default">Default</option>
+                    <option value="LowToHigh">Low to high</option>
+                    <option value="HighToLow">High to low</option>
+                </select>
+                <a href="{{ url_for('homee') }}" class="back-button"><i class="fa-solid fa-house-user fa-beat fa-2xl" style="color: #fbfdff;"></i></a>  
+            </div>
+        </header>
+    </div>
+
+    <div class="product-field">
+        <ul class="items">
+            {% if locations %}
+                {% for location in locations %}
+                {% if location.distance > 100 %}
+                    <li data-category="{{ location.category }}" data-price="{{ location.price }}">
+                        <picture>
+                            {% if location.image %}
+                                <img src="{{ url_for('static', filename='images/' + location.image) }}" alt="{{ location.name }}">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/default.jpg') }}" alt="Default Image">
+                            {% endif %}
+                        </picture>
+                        <div class="detail">
+                            <p class="icon">
+                                <span><i class="far fa-heart"></i></span>
+                                <span><i class="far fa-save"></i></span>
+                                <!-- The rating link here needs to be updated based on your app's logic -->
+                                <a href="">
+                                    <span><i class="fas fa-comment"></i></span>
+                                </a>
+                            </p>
+                            <strong>{{ location.category }}</strong>
+                            <span>{{ location.name }}</span>
+                           <a href="{{ url_for('view') }}"> <small >Quick view</small></a>
+                        </div>
+                        <h4>${{ "%.2f"|format(location.price) }}</h4>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>No locations found.</p>
+            {% endif %}
+            
+        </ul>
+    </div>
+</body>
+</html>

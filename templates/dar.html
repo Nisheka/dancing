@@ -4,25 +4,41 @@
     <title>Local Dancing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/kandy.css') }}">
-</head>
-
-<body>
-<nav id="sidebar">
-    <h2>Classical Dance</h2>
-    <ul>
-        <li><a class="nav-item" href="{{ url_for('Local') }}">Introduction</a></li>
-        <li><a class="nav-item" href="{{ url_for('kandy') }}">Kandyan dances</a></li>
-        <li><a class="nav-item" href="{{ url_for('lowc') }}">Low Country dances</a></li>
-        <li><a class="nav-item" href="{{ url_for('saba') }}">Sabaragamu dances</a></li>
-        <li><a class="nav-item" href="{{ url_for('dev') }}">Devil dances</a></li>
-        <li><a class="nav-item" href="{{ url_for('fol') }}">Folk dances</a></li>
-        <li><a class="nav-item" href="{{ url_for('dar') }}">Dance drama</a></li>
-        <li><a class="nav-item" href="{{ url_for('home') }}">Home</a></li>
-    </ul>
-</nav>
+      
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
+    
+    </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <aside class="container">
+      <input type="checkbox" id="menu__trigger">
+      <section class="menu">
+        <!--<label for="menu__trigger" class="entypo-cancel"></label>-->
+        <nav>
+          <a href="#Introduction">1. Introduction</a>
+          <a href="{{ url_for('kandy') }}">2. Kandyan dances</a>
+          <a href="{{ url_for('lowc') }}">3. Low Country dances</a>
+          <a href="{{ url_for('saba') }}">4. Sabaragamu dances</a>
+          <a href="{{ url_for('dev') }}">5. Devil dances</a>
+          <a href="{{ url_for('fol') }}">6. Folk dances</a>
+          <a href="{{ url_for('dar') }}">7. Dance drama</a>
+          <a href="{{ url_for('homee') }}">8. Home</a>
+        </nav>
+      </section>
+      
+      <section class="content">
+        <label for="menu__trigger" class="entypo-menu"></label>
+       
+          
+      </section>
+  
+    </aside>
 <main id="documentation">
     <div class="blog" id="Blog">
-        <h1>Dance drama- Sri Lankan Classical Dance</h1>
+        <h2>Dance drama- Sri Lankan Classical Dance</h2>
         <div class="blog_box">
             <div class="blog_card">
                 <div class="blog_img">

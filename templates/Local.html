@@ -5,51 +5,68 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         
-      
+      <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
+    <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
+    
     </head>
+    <body>
+    <!-- partial:index.partial.html -->
+    <aside class="container">
+      <input type="checkbox" id="menu__trigger">
+      <section class="menu">
+        <!--<label for="menu__trigger" class="entypo-cancel"></label>-->
+        <nav>
+          <a href="#Introduction">1. Introduction</a>
+          <a href="{{ url_for('kandy') }}">2. Kandyan dances</a>
+          <a href="{{ url_for('lowc') }}">3. Low Country dances</a>
+          <a href="{{ url_for('saba') }}">4. Sabaragamu dances</a>
+          <a href="{{ url_for('dev') }}">5. Devil dances</a>
+          <a href="{{ url_for('fol') }}">6. Folk dances</a>
+          <a href="{{ url_for('dar') }}">7. Dance drama</a>
+          <a href="{{ url_for('homee') }}">8. Home</a>
+        </nav>
+      </section>
+      
+      <section class="content">
+        <label for="menu__trigger" class="entypo-menu"></label>
+        <h1>Sri Lankan Classical Dance Styles</h1>
+          
+      </section>
+  
+    </aside>
+ 
+
 
 
 <body>
     <div class="tech-slideshow">
-        <div class="mover-1">   <img src="{{ url_for('static', filename='images/line.jpg') }}"></div>
-        <div class="mover-2">   <img src="{{ url_for('static', filename='images/line.jpg') }}"></div>
+        <div class="mover-1">   <img src="{{ url_for('static', filename='images/ni.png') }}"></div>
+        <div class="mover-2">   <img src="{{ url_for('static', filename='images/ni.png') }}"></div>
       </div>
       
-    <nav id="sidebar">
-      <h2>Classical Dance </h2>
-      <ul>
-        <li><a class="nav-item" href="#Introduction">Introduction</a></li>
-        <li>
-          <a class="nav-item" href="{{ url_for('kandy') }}">Kandyan dances</a>
-        </li>
-        <li>
-          <a class="nav-item" href="{{ url_for('lowc') }}">Low Country dances</a>
-        </li>
-        <li><a class="nav-item" href="{{ url_for('saba') }}">Sabaragamu dances</a></li>
-        <li><a class="nav-item" href="{{ url_for('dev') }}">Devil dances</a></li>
-        <li>
-          <a class="nav-item" href="{{ url_for('fol') }}">Folk dances</a>
-        </li>
-        <li><a class="nav-item" href="{{ url_for('dar') }}">Dance drama</a></li>
-        <li><a class="nav-item" href="{{ url_for('home') }}">Home</a></li>
-      </ul>
-    </nav>
+
          
 
     <main id="documentation">
       <section id="Introduction">
-        <h2>Sri Lankan Classical Dance Styles</h2>
         <article>
             <p>There are three main styles of Sri Lankan classical dance:</p>
             <ul>
-                <li>The Kandyan dances of the Hill Country, known as Uda Rata Natum;</li>
-                <li>The low country dances of the southern plains, known as Pahatha Rata Natum;</li>
-                <li>Sabaragamuwa dances, or Sabaragamuwa Natum.</li>
+                <li>1. The Kandyan dances of the Hill Country, known as Uda Rata Natum;</li>
+                <li>2. The low country dances of the southern plains, known as Pahatha Rata Natum;</li>
+                <li>3. Sabaragamuwa dances, or Sabaragamuwa Natum.</li>
             </ul>
-            <p>Kandyan dance takes its name from Kandy, the last royal capital of Sri Lanka, which is situated about 120 kilometers from the modern capital at Colombo. This genre is today considered the classical dance of Sri Lanka. In Sanskrit terminology, it is considered pure dance (nrtta); it features a highly developed system of "tala" (rhythm), provided by cymbals called "thalampataa". There are five distinct types; the ves, naiyandi, uddekki, pantheru, and vannams.</p>
-            <p>The three classical dance forms differ in their styles of body movements and gestures, in the costumes worn by the performers, and in the shape and size of the drums used to provide rhythmic sound patterns to accompany the dancing.</p>
-            <p>The drum used in Kandyan dancing is known as the Geta Bera, the drum in Ruhunu (low country) dancing as the "Yak Bera", and the drum in Sabaragamu dancing as the "Davula". The Geta Bera is beaten with the hands, as is also the Yak Bera, while the Davula is played with a stick on one side and with one hand on the other side. The Geta Bera has a body that tapers on both sides, while the Yak Bera and the Davula both have cylindrical bodies.</p>
-            <p>The main distinguishing feature between Kandyan and Sabaragamu dancing, and Ruhunu dancing, is that Ruhunu dancers wear masks.</p>
+
+            <br>
+            <p>Kandyan dance takes its name from Kandy, the last royal capital of Sri Lanka, which is situated about 120 kilometers from the modern capital at Colombo. 
+            This genre is today considered the classical dance of Sri Lanka. In Sanskrit terminology, it is considered pure dance (nrtta); it features a highly developed system of "tala" (rhythm), provided by cymbals called "thalampataa". 
+            There are five distinct types; the ves, naiyandi, uddekki, pantheru, and vannams.
+            The three classical dance forms differ in their styles of body movements and gestures, in the costumes worn by the performers, and in the shape and size of the drums used to provide rhythmic sound patterns to accompany the dancing.
+            The drum used in Kandyan dancing is known as the Geta Bera, the drum in Ruhunu (low country) dancing as the "Yak Bera", and the drum in Sabaragamu dancing as the "Davula". The Geta Bera is beaten with the hands, as is also the Yak Bera, 
+            while the Davula is played with a stick on one side and with one hand on the other side. The Geta Bera has a body that tapers on both sides, while the Yak Bera and the Davula both have cylindrical bodies.</p>
+            The main distinguishing feature between Kandyan and Sabaragamu dancing, and Ruhunu dancing, is that Ruhunu dancers wear masks.</p>
         </body>
          
     </main>

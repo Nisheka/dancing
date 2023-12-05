@@ -1,0 +1,201 @@
+ 
+/* General styles for both layouts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+
+:root {
+    --primary: #fff5d7;
+    --secondary:  #ffaaab ; 
+    --text: #161748;
+    --container-height: 498px;
+  }
+  
+  
+  body {
+    background: var(--primary);
+    padding: 2rem;
+  }
+  .layout-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min-content, 1fr));
+    grid-auto-rows: minmax(150px, auto);
+    grid-auto-flow: dense;
+    grid-gap: 1em;
+    break-inside: avoid;
+    }
+    
+    .cover-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background: url("../images/ni.png") center center / cover no-repeat fixed; 
+    height: 100vh;
+    object-fit: contain;
+    }
+    
+    .article-tags {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    }
+    
+    .headline,
+    .subhead,
+    .article-meta,
+    aside,
+    h2 {
+    font-family: "Balsamiq Sans", cursive;
+    text-transform: uppercase;
+    }
+    
+    figure,
+    img {
+    width: 100%;
+    max-width: 37.5rem;
+    }
+    
+    figure {
+    position: relative;
+    margin: 0 auto;
+    }
+    
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .video-container {
+        position: relative;
+        width: 80%;
+        height: 4rem;
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        padding: 0 1rem;
+        margin-top: .1rem;
+        cursor: pointer;
+      
+        border-radius: .5rem;
+      }
+      
+      #videoPlayer {
+        width: 100%;
+        height: 415px;
+        border-radius: 8px;
+        margin-bottom: 580px;
+        margin-left: 300px;
+      }
+      
+      #videoDuration {
+        color: var(--text);
+        margin-left: 6.5rem;
+        
+      }
+
+section {
+  position: relative;
+  padding-right: 1050px;
+}
+
+.list {
+  max-height: var(--container-height);
+  border: 2px solid #37392e;
+  border-radius: 5px;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-timeline: listTimeline vertical;
+}
+
+.animation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  background-size: 50px 40px;
+  /* background image on bottom of css for readability */
+}
+
+@supports (scroll-timeline: works) {
+  .animation {
+    animation: moveBackground 1s alternate linear;
+    animation-timeline: listTimeline;
+  }
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 calc(var(--container-height) / -1);
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--text);
+}
+
+li {
+  padding: 20px;
+  border-top: 1px solid var(--secondary);
+  scroll-snap-align: start;
+}
+
+li:first-child {
+  border: 0;
+}
+
+/* Demo styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #37392e;
+  background: var(--primary);
+  font-family: "Poppins", sans-serif;
+}
+
+.animation {
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Isolation_Mode' data-name='Isolation Mode' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 633.33 680'%3E%3Cpath fill='%2328AFB0' d='M383.33,500c27.61,0,50,22.39,50,50,0,25.99-19.83,47.35-45.18,49.77l-4.82,.23H50c-27.61,0-50-22.39-50-50,0-25.99,19.83-47.35,45.18-49.77l4.82-.23H383.33Zm200-166.67c27.61,0,50,22.39,50,50s-22.39,50-50,50H50c-27.61,0-50-22.39-50-50s22.39-50,50-50H583.33Zm-200-166.67c27.61,0,50,22.39,50,50,0,25.99-19.83,47.35-45.18,49.77l-4.82,.23H50c-27.61,0-50-22.39-50-50,0-25.99,19.83-47.35,45.18-49.77l4.82-.23H383.33ZM583.33,0c27.61,0,50,22.39,50,50,0,25.99-19.83,47.35-45.18,49.77l-4.82,.23H50C22.39,100,0,77.61,0,50,0,24.01,19.83,2.65,45.18,.23l4.82-.23H583.33Z'/%3E%3C/svg%3E");
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--text);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text);
+}
